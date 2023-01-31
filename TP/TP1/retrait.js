@@ -4,7 +4,7 @@ overdraft = parseInt(overdraft) // 500€
 let sold = prompt("Saisissez le montant de votre solde : ")
 sold = parseInt(sold) // -400€
 while (sold + overdraft < 0) { // 100 > 0
-    let sold = prompt("Saisissez le montant de votre solde : ")
+    sold = prompt("Saisissez le montant de votre solde : ")
     sold = parseInt(sold)
 }
 
