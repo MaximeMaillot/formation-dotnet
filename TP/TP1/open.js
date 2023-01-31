@@ -13,7 +13,7 @@ let sold = prompt("Saisissez le montant du solde (minimum 500€)")
 sold = parseInt(sold)
 while (sold < 500) {
     sold = prompt("Saisissez le montant du solde (minimum 500€)")
-    sold = parseInt(overdraft)
+    sold = parseInt(sold)
 }
 console.log("Solde : " + sold)
 console.log("Découvert : " + overdraft)
