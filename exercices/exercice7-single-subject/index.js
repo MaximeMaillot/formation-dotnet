@@ -1,3 +1,8 @@
+/**
+Saisissez les notes une par une, lorsque l'utilisateur saisit la note -1, 
+la saisie des notes prend fin et votre programme affiche le nombre total de notes (ie nombre d'étudiant) et la moyenne de la classe.
+ */
+
 let arrayNotes = []
 
 let userInput = prompt("Entrez la note : ")
