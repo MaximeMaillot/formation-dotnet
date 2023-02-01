@@ -5,6 +5,10 @@
  * 
  */
 class Item {
+    /**
+     * @param {Integer} price 
+     * @param {Integer} quantity 
+     */
     constructor(price, quantity) {
         this.price = price
         this.quantity = quantity
@@ -38,6 +42,11 @@ class Cart {
         })
     }
 
+    /**
+     * 
+     * @param {Integer} price 
+     * @param {Integer} quantity 
+     */
     addItem(price, quantity) {
         this.items.push(new Item(price, quantity))
         this.price += price
@@ -99,11 +108,9 @@ do {
     }
 } while (price > 0 && quantity > 0)
 
-
-
 shoppingCart.show()
 
 console.log("Prix maximum : " + shoppingCart.getMaxPrice())
 console.log("Prix minimum : " + shoppingCart.getMinPrice())
 console.log("Moyenne des prix : " + shoppingCart.getAvgPrice())
-console.log(("Nombre d'articles : " + shoppingCart.getTotalQuantity()))
+console.log("Nombre d'articles : " + shoppingCart.getTotalQuantity())
