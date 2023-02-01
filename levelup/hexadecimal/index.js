@@ -11,27 +11,27 @@ let simple = 15 // 15
 let normal = 32 // 20
 let complex = 529282 // 81382
 
-let hex = ""
-
-function transformDecimalToHex(decimal, hex) {
+function transformDecimalToHex(decimal, hex = "") {
     let result = Math.floor(decimal / 16)
     let remainder = decimal % 16
     if (result == 0) {
         hex = hexadecimals[remainder] + hex
-        console.log(hex)
-        console.log(typeof (hex))
+        console.log('hex', hex)
         return hex
     } else {
         hex = hexadecimals[remainder] + hex
+        console.log('hex', hex)
         transformDecimalToHex(result, hex)
     }
 }
 
-let resultSimple = transformDecimalToHex(simple, hex)
-console.log(resultSimple)
+// let resultSimple = transformDecimalToHex(simple)
+// console.log(resultSimple)
 
-let resultNormal = transformDecimalToHex(normal, hex)
-console.log(resultNormal)
+// let resultNormal = transformDecimalToHex(normal)
+// console.log(resultNormal)
 
-let resultComplex = transformDecimalToHex(complex, hex)
-console.log(resultComplex)
+// let resultComplex = transformDecimalToHex(complex)
+// console.log(resultComplex)
+
+module.exports = transformDecimalToHex
