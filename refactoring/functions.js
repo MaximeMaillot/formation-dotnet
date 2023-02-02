@@ -1,17 +1,32 @@
-export function askUserInput(msg, type = "string") {
-    let input = prompt(msg)
-    if (type == "int") {
-        input = parseInt(input)
-        if (typeof input != "number") {
-            throw new Error
+/**
+ * 
+ * @param {String} msg 
+ * @param {Boolean} askUntilCorrect 
+ * @param {String} type 
+ * @returns 
+ */
+export function askUserInput(msg, askUntilCorrect = true, type = "string") {
+    try {
+        let input = prompt(msg)
+        if (type == "int") {
+            input = parseInt(input)
+            if (input == "NaN") {
+                throw new Error
+            }
+        } else if (type == "float") {
+            input = parseFloat(input)
+            if (input == "NaN") {
+                throw new Error
+            }
         }
-    } else if (type == "float") {
-        input = parseFloat(input)
-        if (typeof input != "number") {
-            throw new Error
+        return input
+    } catch {
+        if (askUntilCorrect) {
+            askUserInput(msg, false, type)
+        } else {
+            console.log("Valeur incorrect")
         }
     }
-    return input
 }
 
 export function pow(a, b) {

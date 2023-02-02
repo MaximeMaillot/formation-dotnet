@@ -29,5 +29,13 @@ export default class User {
             throw new Error
         }
     }
-
+    checkMaturity() {
+        if (this.age > 18) {
+            console.log("Vous êtes majeur")
+        } else if (this.age == 18) {
+            console.log("Vous êtes majeur et vous avez exactement 18 ans")
+        } else {
+            console.log("Vous êtes mineur")
+        }
+    }
 }

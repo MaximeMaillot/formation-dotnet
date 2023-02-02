@@ -9,6 +9,6 @@ import User from "../user.js";
 let user = new User()
 user.setLastName(askUserInput("Entrez votre prénom"))
 user.setFirstName(askUserInput("Entrez votre nom"))
-user.setAge(askUserInput("Entrez votre age", "int"))
+user.setAge(askUserInput("Entrez votre age", true, "int"))
 
 console.log(`firstName : ${user.getFirstName()} \nlastName : ${user.getLastName()} \nage : ${user.getAge()}`)

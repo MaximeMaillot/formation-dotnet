@@ -10,12 +10,6 @@ import User from "../user.js"
 
 let user = new User()
 
-user.setAge(askUserInput("Quelle est votre âge", "int"))
+user.setAge(askUserInput("Quelle est votre âge", true, "int"))
 
-if (age > 18) {
-    console.log("Vous êtes majeur")
-} else if (age == 18) {
-    console.log("Vous êtes majeur et vous avez exactement 18 ans")
-} else {
-    console.log("Vous êtes mineur")
-}
+user.checkMaturity()
