@@ -5,11 +5,17 @@ Ecrivez un programme qui permet de transformer une donnée décimale en hexadéc
 Ecrivez un autre programme qui permet de transformer une donnée hexadécimale en décimal.
 */
 
+import { pow } from "../../refactoring/functions.js";
+
 let hexadecimals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
 
 let simple = 15 // 15
 let normal = 32 // 20
 let complex = 529282 // 81382
+
+let simpleHex = "A" // 10
+let normalHex = "F2" // 242
+let complexHex = "100ABCDEF" // 4306226671
 
 /**
  * Should return an hexadecimal but return undefined if using recursivity
@@ -20,6 +26,7 @@ let complex = 529282 // 81382
 function transformDecimalToHex(decimal, hex = "") {
     let result = Math.floor(decimal / 16)
     let remainder = decimal % 16
+    //console.log(result, remainder)
     if (result == 0) {
         hex = hexadecimals[remainder] + hex
         return hex
@@ -49,15 +56,44 @@ function transformDecimalToHexWithoutRecursivity(decimal) {
     }
 }
 
-/*
-let resultSimple = transformDecimalToHexWithoutRecursivity(simple)
-console.log("simple", resultSimple)
+function transformHexCharacterToDecimal(hex) {
+    console.log("hexTransform", hex)
+    switch (hex) {
+        case "A":
+            return 10
+            break;
+        case "B":
+            return 11
+            break;
+        case "C":
+            return 12
+            break;
+        case "D":
+            return 13
+            break;
+        case "E":
+            return 14
+            break;
+        case "F":
+            return 15
+            break;
+        default:
+            hex = parseInt(hex)
+            //console.log("hex", hex, typeof hex)
+            if (typeof hex != "number") {
+                throw new Error
+            } else {
+                return hex
+            }
+            break;
+    }
+}
 
-let resultNormal = transformDecimalToHexWithoutRecursivity(normal)
-console.log("normal", resultNormal)
-
-let resultComplex = transformDecimalToHexWithoutRecursivity(complex)
-console.log("complex", resultComplex)
-*/
-
-export { transformDecimalToHex, transformDecimalToHexWithoutRecursivity }
+function transformHexadecimalToDecimal(hexadecimal) {
+    let decimal = 0
+    for (let i = 0; i < hexadecimal.length; i++) {
+        decimal += pow(16, (hexadecimal.length - i - 1)) * transformHexCharacterToDecimal(hexadecimal[i])
+    }
+    return decimal
+}
+export { transformDecimalToHex, transformDecimalToHexWithoutRecursivity, transformHexCharacterToDecimal, transformHexadecimalToDecimal }

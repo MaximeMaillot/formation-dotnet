@@ -14,6 +14,14 @@ export function askUserInput(msg, type = "string") {
     return input
 }
 
+export function pow(a, b) {
+    let result = 1
+    for (let i = 0; i < b; i++) {
+        result = result * a
+    }
+    return result
+}
+
 export function showDataInDiv(divId, data) {
     // get a div ID and show data instead of using console.log()
 }
