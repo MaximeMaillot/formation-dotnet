@@ -5,12 +5,12 @@ En fonction de l'âge saisit par l'utilisateur, affichez l'un des 3 messages sui
 "Vous êtes mineur".
  */
 
-import { askUserInput } from "../../refactoring/functions"
+import { askUserInput } from "../functions.js"
+import User from "../user.js"
 
+let user = new User()
 
-
-let age = askUserInput("Quelle est votre âge", age)
-age = parseInt(age)
+user.setAge(askUserInput("Quelle est votre âge", "int"))
 
 if (age > 18) {
     console.log("Vous êtes majeur")
