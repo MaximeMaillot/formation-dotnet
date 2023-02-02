@@ -34,4 +34,4 @@ function transformDecimalToHex(decimal, hex = "") {
 // let resultComplex = transformDecimalToHex(complex)
 // console.log(resultComplex)
 
-module.exports = transformDecimalToHex
+export { transformDecimalToHex }
