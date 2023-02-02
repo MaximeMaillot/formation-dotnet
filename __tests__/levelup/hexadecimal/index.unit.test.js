@@ -1,23 +1,6 @@
-import { transformDecimalToHexWithoutRecursivity, transformDecimalToHex, transformHexadecimalToDecimal, transformHexCharacterToDecimal } from "../../../levelup/hexadecimal/index.js";
+import { transformDecimalToHex, transformHexadecimalToDecimal, transformHexCharacterToDecimal } from "../../../levelup/hexadecimal/index.js";
 
-describe('transformDecimalToHexWithoutRecursivity', function () {
-    it.concurrent('should return F', function () {
-        let res = transformDecimalToHexWithoutRecursivity(1)
-        expect(res).toBe("1")
-    })
-
-    it.concurrent('should return 20', function () {
-        let res = transformDecimalToHexWithoutRecursivity(32)
-        expect(res).toBe("20")
-    })
-
-    it.concurrent('should return 81382', function () {
-        let res = transformDecimalToHexWithoutRecursivity(529282)
-        expect(res).toBe("81382")
-    })
-})
-
-describe.skip('transformDecimalToHex', function () {
+describe('transformDecimalToHex', function () {
     it.concurrent('should return F', function () {
         let res = transformDecimalToHex(1)
         expect(res).toBe("1")
@@ -44,10 +27,8 @@ describe('transformHexCharacterToDecimal', function () {
         expect(res).toBe(1)
     })
     it.concurrent('Should throw an Error', function () {
-        let res = transformHexCharacterToDecimal("error")
-        expect(res).toThrow(Error)
+        expect(() => { transformHexCharacterToDecimal("error") }).toThrow(Error)
     })
-
 })
 
 describe('transformHexadecimalToDecimal', function () {

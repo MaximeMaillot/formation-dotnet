@@ -18,30 +18,11 @@ let normalHex = "F2" // 242
 let complexHex = "100ABCDEF" // 4306226671
 
 /**
- * Should return an hexadecimal but return undefined if using recursivity
- * @param {Number} decimal 
- * @param {String} hex 
- * @returns String
- */
-function transformDecimalToHex(decimal, hex = "") {
-    let result = Math.floor(decimal / 16)
-    let remainder = decimal % 16
-    //console.log(result, remainder)
-    if (result == 0) {
-        hex = hexadecimals[remainder] + hex
-        return hex
-    } else {
-        hex = hexadecimals[remainder] + hex
-        transformDecimalToHex(result, hex)
-    }
-}
-
-/**
  * Transform a decimal into an hexadecimal
  * @param {Number} decimal 
  * @returns String
  */
-function transformDecimalToHexWithoutRecursivity(decimal) {
+function transformDecimalToHex(decimal) {
     let result = decimal
     let remainder
     let hex = ""
@@ -49,7 +30,6 @@ function transformDecimalToHexWithoutRecursivity(decimal) {
         remainder = result % 16
         result = Math.floor(result / 16)
         hex = hexadecimals[remainder] + hex
-        //console.log(result, remainder, hex)
         if (result == 0) {
             return hex
         }
@@ -57,7 +37,6 @@ function transformDecimalToHexWithoutRecursivity(decimal) {
 }
 
 function transformHexCharacterToDecimal(hex) {
-    console.log("hexTransform", hex)
     switch (hex) {
         case "A":
             return 10
@@ -79,8 +58,8 @@ function transformHexCharacterToDecimal(hex) {
             break;
         default:
             hex = parseInt(hex)
-            //console.log("hex", hex, typeof hex)
-            if (typeof hex != "number") {
+
+            if (isNaN(hex)) {
                 throw new Error
             } else {
                 return hex
@@ -96,4 +75,5 @@ function transformHexadecimalToDecimal(hexadecimal) {
     }
     return decimal
 }
-export { transformDecimalToHex, transformDecimalToHexWithoutRecursivity, transformHexCharacterToDecimal, transformHexadecimalToDecimal }
+
+export { transformDecimalToHex, transformHexCharacterToDecimal, transformHexadecimalToDecimal }
