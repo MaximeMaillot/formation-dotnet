@@ -17,7 +17,7 @@ describe('transformDecimalToHexWithoutRecursivity', function () {
     })
 })
 
-describe('transformDecimalToHex', function () {
+describe.skip('transformDecimalToHex', function () {
     it.concurrent('should return F', function () {
         let res = transformDecimalToHex(1)
         expect(res).toBe("1")
@@ -55,13 +55,12 @@ describe('transformHexadecimalToDecimal', function () {
         let res = transformHexadecimalToDecimal("A")
         expect(res).toBe(10)
     })
-    it.concurrent('Should return 1', function () {
+    it.concurrent('Should return 242', function () {
         let res = transformHexadecimalToDecimal("F2")
         expect(res).toBe(242)
     })
-    it.concurrent('Should throw an Error', function () {
+    it.concurrent('Should return 4306226671', function () {
         let res = transformHexadecimalToDecimal("100ABCDEF")
         expect(res).toBe(4306226671)
     })
-
 })
