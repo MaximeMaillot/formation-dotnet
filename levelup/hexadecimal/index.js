@@ -11,27 +11,53 @@ let simple = 15 // 15
 let normal = 32 // 20
 let complex = 529282 // 81382
 
+/**
+ * Should return an hexadecimal but return undefined if using recursivity
+ * @param {Number} decimal 
+ * @param {String} hex 
+ * @returns String
+ */
 function transformDecimalToHex(decimal, hex = "") {
     let result = Math.floor(decimal / 16)
     let remainder = decimal % 16
     if (result == 0) {
         hex = hexadecimals[remainder] + hex
-        console.log('hex', hex)
         return hex
     } else {
         hex = hexadecimals[remainder] + hex
-        console.log('hex', hex)
         transformDecimalToHex(result, hex)
     }
 }
 
-// let resultSimple = transformDecimalToHex(simple)
-// console.log(resultSimple)
+/**
+ * Transform a decimal into an hexadecimal
+ * @param {Number} decimal 
+ * @returns String
+ */
+function transformDecimalToHexWithoutRecursivity(decimal) {
+    let result = decimal
+    let remainder
+    let hex = ""
+    while (result != 0) {
+        remainder = result % 16
+        result = Math.floor(result / 16)
+        hex = hexadecimals[remainder] + hex
+        //console.log(result, remainder, hex)
+        if (result == 0) {
+            return hex
+        }
+    }
+}
 
-// let resultNormal = transformDecimalToHex(normal)
-// console.log(resultNormal)
+/*
+let resultSimple = transformDecimalToHexWithoutRecursivity(simple)
+console.log("simple", resultSimple)
 
-// let resultComplex = transformDecimalToHex(complex)
-// console.log(resultComplex)
+let resultNormal = transformDecimalToHexWithoutRecursivity(normal)
+console.log("normal", resultNormal)
 
-export { transformDecimalToHex }
+let resultComplex = transformDecimalToHexWithoutRecursivity(complex)
+console.log("complex", resultComplex)
+*/
+
+export { transformDecimalToHex, transformDecimalToHexWithoutRecursivity }

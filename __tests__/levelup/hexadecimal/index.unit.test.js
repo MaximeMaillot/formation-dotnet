@@ -1,9 +1,6 @@
-let hexadecimals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+import { transformDecimalToHexWithoutRecursivity as transformDecimalToHex } from "../../../levelup/hexadecimal/index.js";
 
-
-import { transformDecimalToHex } from "../../../levelup/hexadecimal/index.js";
-
-describe.skip('TransformDecimalToHex', function () {
+describe('TransformDecimalToHex', function () {
     it.concurrent('should return F', function () {
         let res = transformDecimalToHex(1)
         expect(res).toBe("1")
