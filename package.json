@@ -1,8 +1,9 @@
 {
-  "dependencies": {
-    "jest": "^29.4.1"
-  },
+  "type": "module",
   "scripts": {
-    "test": "jest --watch"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
+  },
+  "devDependencies": {
+    "jest": "^29.4.1"
   }
 }
