@@ -2,7 +2,8 @@
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "git-test": "jest"
   },
   "devDependencies": {
     "husky": "^8.0.3",
