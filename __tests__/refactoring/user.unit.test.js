@@ -28,10 +28,10 @@ describe('User', function () {
         expect(user.getLastName()).toBe("test")
     })
 
-    it.concurrent('should set age to 18', function () {
+    it.each([[18], [25], [32], [70]])('should set age to %d', (age) => {
         let user = new User()
-        user.setAge(18)
-        expect(user.getAge()).toBe(18)
+        user.setAge(age)
+        expect(user.getAge()).toBe(age)
     })
 
     it.concurrent('should throw an Error', function () {
