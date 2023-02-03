@@ -12,17 +12,37 @@ En entrée: Laval En sortie: true
 console.log("isPalindrome")
 
 function isPalindrome(str) {
+    if (typeof str != "string") {
+        throw new TypeError
+    }
     str = str.toLowerCase()
     let inverseStr = ""
     for (let i = str.length - 1; i >= 0; i--) {
         inverseStr += str[i]
     }
-    console.log(str, inverseStr)
     return str == inverseStr
+}
+
+function isPalindromeCheckByHalf(str) {
+    if (typeof str != "string") {
+        throw new TypeError
+    }
+    str = str.toLowerCase()
+    let length = Math.floor(str.length)
+    for (let i = 0; i < length; i++) {
+        if (str[i] != str[str.length - i - 1]) {
+            return false
+        }
+    }
+    return true
 }
 
 console.log(isPalindrome("rats"))
 console.log(isPalindrome("Elle"))
 console.log(isPalindrome("Laval"))
 
-export { isPalindrome }
+console.log(isPalindromeCheckByHalf("rats"))
+console.log(isPalindromeCheckByHalf("Elle"))
+console.log(isPalindromeCheckByHalf("Laval"))
+
+//export { isPalindrome }
