@@ -22,7 +22,7 @@ export default class User {
     }
     setAge(age) {
         if (typeof age != "number") {
-            throw new Error
+            throw new TypeError
         } else if (age > 0) {
             this.age = age
         } else {

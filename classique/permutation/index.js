@@ -8,5 +8,7 @@ En entrée : a = 15, b = 10 En sortie : a = 10 et b = 15
  */
 
 function permutation(a, b) {
-    return [b, a}
+    return [b, a]
 }
+
+export { permutation }

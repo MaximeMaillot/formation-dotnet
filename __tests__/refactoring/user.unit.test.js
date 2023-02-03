@@ -33,4 +33,18 @@ describe('User', function () {
         user.setAge(18)
         expect(user.getAge()).toBe(18)
     })
+
+    it.concurrent('should throw an Error', function () {
+        let user = new User()
+        expect(() => {
+            user.setAge(-1)
+        }).toThrow(Error)
+    })
+
+    it.concurrent('should throw an Error', function () {
+        let user = new User()
+        expect(() => {
+            user.setAge("test")
+        }).toThrow(TypeError)
+    })
 })
