@@ -7,8 +7,23 @@ Exemple
 En entrée : a = 15, b = 10 En sortie : a = 10 et b = 15
  */
 
-function permutation(a, b) {
-    return [b, a]
+function askUserInput(msg) {
+    let userInput = ""
+    userInput = prompt("Saisit un nombre a :")
+    return userInput
 }
 
-export { permutation }
+function permutation(a, b) {
+    let tmp = a
+    a = b
+    b = tmp
+
+    console.log(`a = ${a} et b = ${b}`)
+}
+
+let a = askUserInput("Saisit une valeur a:")
+let b = askUserInput("Saisit une valeur b :")
+
+permutation(a, b)
+
+//export { askUserNumber, permutation }
