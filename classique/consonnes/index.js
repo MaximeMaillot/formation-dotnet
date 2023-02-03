@@ -6,7 +6,7 @@ Exemple
  */
 
 function countConsonants(str) {
-    return str.toLowerCase().match(/[b-df-hj-np-tv-xz]/gi).length || [].length;
+    return str.toLowerCase().match(/[b-df-hj-np-tv-xzçñ]/gi).length || [].length;
 }
 
 console.log(countConsonants("Ceci est une phrase"))
