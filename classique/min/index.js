@@ -5,9 +5,12 @@ Exemple
 En entrée : [10, 25, 6, 8, 9, 101 ,4] En sortie : 4
 */
 
-function getMin(array) {
-    let min = Number.MAX_VALUE
-    for (let i = 0; i < array.length; i++) {
+function findMinInArray(array) {
+    if (array.length == 0) {
+        throw new Error
+    }
+    let min = array[0]
+    for (let i = 1; i < array.length; i++) {
         if (array[i] < min) {
             min = array[i]
         }
@@ -15,6 +18,6 @@ function getMin(array) {
     return min
 }
 
-console.log(getMin([10, 25, 6, 8, 9, 101, 4]))
+console.log(findMinInArray([10, 25, 6, 8, 9, 101, 4]))
 
-export { getMin }
+export { findMinInArray }

@@ -5,9 +5,12 @@ Exemple
 En entrée : [10, 25, 6, 8, 9, 101 ,4] En sortie : 101
 */
 
-function findMax(array) {
-    let max = Number.MIN_VALUE
-    for (let i = 0; i < array.length; i++) {
+function findMaxInArray(array) {
+    if (array.length == 0) {
+        throw new Error
+    }
+    let max = array[0]
+    for (let i = 1; i < array.length; i++) {
         if (array[i] > max) {
             max = array[i]
         }
@@ -15,6 +18,6 @@ function findMax(array) {
     return max
 }
 
-console.log(findMax([10, 25, 6, 8, 9, 101, 4]))
+console.log(findMaxInArray([10, 25, 6, 8, 9, 101, 4]))
 
-export { findMax }
+export { findMaxInArray }

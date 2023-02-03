@@ -22,4 +22,4 @@ function getSubArrayMax(array) {
 
 console.log(getSubArrayMax([[10, 7, 6, 8], [15, -1, 56, 7], [75, 4, -5, -100]]))
 
-export { subArrayMax }
+export { getSubArrayMax }
