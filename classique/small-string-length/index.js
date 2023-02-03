@@ -24,6 +24,20 @@ function getMinWordLength(str) {
     return minWord.length
 }
 
-console.log(getMinWordLength("elle est courte cette phrase"))
+function getMinWordLengthWithSplit(str) {
+    let tabStr = str.split(" ")
+    let minWord = "anticonstitutionnellementanticonstitutionnellementanticonstitutionnellement"
+    tabStr.forEach(word => {
+        if (word == "") {
+            // skip
+        } else if (word.length < minWord.length) {
+            minWord = word
+        }
+    });
+    return minWord.length
+}
 
-export { getMinWordLength }
+console.log(getMinWordLength("elle est courte cette phrase"))
+console.log(getMinWordLengthWithSplit("a"))
+
+//export { getMinWordLength, getMinWordLengthWithSplit }
