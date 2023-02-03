@@ -9,8 +9,6 @@ En entrée: Elle En sortie: true
 En entrée: Laval En sortie: true
 */
 
-console.log("isPalindrome")
-
 function isPalindrome(str) {
     if (typeof str != "string") {
         throw new TypeError
@@ -37,12 +35,33 @@ function isPalindromeCheckByHalf(str) {
     return true
 }
 
-console.log(isPalindrome("rats"))
-console.log(isPalindrome("Elle"))
-console.log(isPalindrome("Laval"))
+function isPalindromeWhile(sentence) {
+    sentence = sentence.toLowerCase()
+    let reverse = ''
+    let last = sentence.length - 1
+    while (last >= 0) {
+        reverse += sentence[last]
+        last--
+    }
+    if (reverse == sentence) {
+        return true
+    }
+    return false
+}
 
-console.log(isPalindromeCheckByHalf("rats"))
-console.log(isPalindromeCheckByHalf("Elle"))
-console.log(isPalindromeCheckByHalf("Laval"))
+console.log("isPalindrome")
+console.log("rats", isPalindrome("rats"))
+console.log("Elle", isPalindrome("Elle"))
+console.log("Laval", isPalindrome("Laval"))
+
+console.log("isPalindromeCheckByHalf")
+console.log("rats", isPalindromeCheckByHalf("rats"))
+console.log("Elle", isPalindromeCheckByHalf("Elle"))
+console.log("Laval", isPalindromeCheckByHalf("Laval"))
+
+console.log("isPalindromeWhile")
+console.log("rats", isPalindromeWhile("rats"))
+console.log("Elle", isPalindromeWhile("Elle"))
+console.log("Laval", isPalindromeWhile("Laval"))
 
 //export { isPalindrome }
