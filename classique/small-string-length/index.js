@@ -38,6 +38,7 @@ function getMinWordLengthWithSplit(str) {
 }
 
 console.log(getMinWordLength("elle est courte cette phrase"))
+console.log(getMinWordLengthWithSplit("elle est courte cette phrase"))
 console.log(getMinWordLengthWithSplit("a"))
 
 //export { getMinWordLength, getMinWordLengthWithSplit }
