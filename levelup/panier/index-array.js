@@ -1,4 +1,4 @@
-let maxPrice = Number.MIN_VALUE
+let maxPrice = -Number.MIN_VALUE
 let minPrice = Number.MAX_VALUE
 let sumPrice = 0
 let cptArticle = 0

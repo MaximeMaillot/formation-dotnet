@@ -64,7 +64,7 @@ class Cart {
     }
 
     getMaxPrice() {
-        let max = Number.MIN_VALUE
+        let max = -Number.MIN_VALUE
         this.items.forEach((item) => {
             if (item.getPrice() > max) {
                 max = item.getPrice()

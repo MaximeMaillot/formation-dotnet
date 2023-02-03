@@ -6,7 +6,7 @@ Ecrivez un programme qui calcul le montant total de la facture. Le programme dev
 Votre programme devra déterminer également le prix de l’article le plus cher, le moins cher, le prix moyen des articles et le nombre totale des articles.
  */
 
-let maxPrice = Number.MIN_VALUE
+let maxPrice = -Number.MIN_VALUE
 let minPrice = Number.MAX_VALUE
 let sumPrice = 0
 let cptArticle = 0
