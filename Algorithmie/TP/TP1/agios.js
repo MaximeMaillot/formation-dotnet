@@ -18,34 +18,33 @@ Le nombre de jours compris entre 1 et 365.
 
 // Agios = (montant utilisé du découvert * nombre de jours d'utilisation * taux de la banque) / 365 Le taux de banque = 10 / 100 = 0.1
 
-let rate = 0.1
-let minOverdraft = 100
-let maxOverdraft = 2000
+let rate = 0.1;
+let minOverdraft = 100;
+let maxOverdraft = 2000;
+let isOverdraft = false;
 
-function main() {
-    let overdraft = prompt("Montant du découvert :")
-    overdraft = parseInt(overdraft)
-    while (overdraft < minOverdraft || overdraft > maxOverdraft) {
-        if (overdraft == 0) {
-            console.log("Découvert non autorisé => pas d'agios")
-            return
-        }
-        overdraft = prompt("Montant du découvert :")
-        overdraft = parseInt(overdraft)
-    }
-
-    let day = prompt("Durée du découvert : ")
-    day = parseInt(day)
-    while (day < 1 || day > 365) {
-        day = prompt("Durée du découvert : ")
-        day = parseInt(day)
-    }
-
-    let agios = overdraft * day * rate / 365
-
-    agios = Math.round(agios * 100) / 100
-
-    console.log("Agios (€) : " + agios)
+let overdraft = prompt("Montant du découvert :");
+overdraft = parseInt(overdraft);
+while ((overdraft < minOverdraft || overdraft > maxOverdraft) && !isOverdraft) {
+  if (overdraft == 0) {
+    console.log("Découvert non autorisé => pas d'agios");
+    isOverdraft;
+  }
+  overdraft = prompt("Montant du découvert :");
+  overdraft = parseInt(overdraft);
 }
 
-main()
+if (isOverdraft) {
+  let day = prompt("Durée du découvert : ");
+  day = parseInt(day);
+  while (day < 1 || day > 365) {
+    day = prompt("Durée du découvert : ");
+    day = parseInt(day);
+  }
+
+  let agios = (overdraft * day * rate) / 365;
+
+  agios = Math.round(agios * 100) / 100;
+
+  console.log("Agios (€) : " + agios);
+}
