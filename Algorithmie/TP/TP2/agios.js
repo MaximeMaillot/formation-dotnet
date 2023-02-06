@@ -18,36 +18,46 @@ Le nombre de jours compris entre 1 et 365.
 
 // Agios = (montant utilisé du découvert * nombre de jours d'utilisation * taux de la banque) / 365 Le taux de banque = 10 / 100 = 0.1
 
-let rate = 0.1
-let minOverdraft = 100
-let maxOverdraft = 2000
+let rate = 0.1;
+let minOverdraft = 100;
+let maxOverdraft = 2000;
 
-let operations = []
+let operations = [];
 
 function calculateAgios(overdraft, day) {
-    let agios = Math.round((overdraft * day * rate / 365) * 100) / 100
-    operations.push({ "type": "checkAgios", "overdraft": sold, "day": day, "agios": agios, "accepted": true })
-    return agios
+  let agios = Math.round(((overdraft * day * rate) / 365) * 100) / 100;
+  operations.push({
+    type: "checkAgios",
+    overdraft: sold,
+    day: day,
+    agios: agios,
+    accepted: true,
+  });
+  return agios;
 }
 
-let overdraft = prompt("Montant du découvert :")
-overdraft = parseInt(overdraft)
-while (overdraft < minOverdraft || overdraft > maxOverdraft) {
+function agios() {
+  let overdraft = prompt("Montant du découvert :");
+  overdraft = parseInt(overdraft);
+  while (overdraft < minOverdraft || overdraft > maxOverdraft) {
     if (overdraft == 0) {
-        console.log("Découvert non autorisé => pas d'agios")
-        throw new Error
+      console.log("Découvert non autorisé => pas d'agios");
+      throw new Error();
     }
-    overdraft = prompt("Montant du découvert :")
-    overdraft = parseInt(overdraft)
+    overdraft = prompt("Montant du découvert :");
+    overdraft = parseInt(overdraft);
+  }
+
+  let day = prompt("Durée du découvert : ");
+  day = parseInt(day);
+  while (day < 1 || day > 365) {
+    day = prompt("Durée du découvert : ");
+    day = parseInt(day);
+  }
+
+  let agios = calculateAgios(overdraft, day);
+
+  console.log("Agios (€) : " + agios);
 }
 
-let day = prompt("Durée du découvert : ")
-day = parseInt(day)
-while (day < 1 || day > 365) {
-    day = prompt("Durée du découvert : ")
-    day = parseInt(day)
-}
-
-let agios = calculateAgios(overdraft, day)
-
-console.log("Agios (€) : " + agios)
+export { agios };
