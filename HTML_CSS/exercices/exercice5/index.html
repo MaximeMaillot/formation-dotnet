@@ -11,147 +11,102 @@
       <h1>Form</h1>
     </thead>
 
-    Un champ libre pour les modules (cours) étudiés Des cases à cocher dédiées
-    aux langues Liste des technologies maitrisées* Un champ pour la date de
-    début de stage (disponibilité)* Un champ vers un profil GitHub Un champ vers
-    le profil LinkedIn Un champ pour déposer un CV* Un champ libre pour la
-    lettre de motivation* Un champ libre pour tout commentaire supplémentaire
+    Des cases à cocher dédiées aux langues Liste des technologies maitrisées* Un
+    champ pour la date de début de stage (disponibilité)* Un champ vers un
+    profil GitHub Un champ vers le profil LinkedIn Un champ pour déposer un CV*
+    Un champ libre pour la lettre de motivation* Un champ libre pour tout
+    commentaire supplémentaire
 
     <tbody>
       <form>
         <fieldset>
-          <table>
-            <tr>
-              <td><label for="lastname">Nom* :</label></td>
-              <td>
-                <input type="text" id="lastname" name="lastname" required />
-              </td>
-            </tr>
-            <tr>
-              <td><label for="firstname">Prénom* :</label></td>
-              <td>
-                <input type="text" id="firstname" name="firstname" required />
-              </td>
-            </tr>
-          </table>
+          <label for="lastname">Nom* :</label>
+          <input type="text" id="lastname" name="lastname" required />
+
+          <label for="firstname">Prénom* :</label>
+          <input type="text" id="firstname" name="firstname" required />
         </fieldset>
 
         <fieldset>
-          <table>
-            <tr>
-              <td><label for="city">Ville :</label></td>
-              <td><input type="text" id="city" name="city" /></td>
-            </tr>
+          <label for="city">Ville :</label>
+          <input type="text" id="city" name="city" />
 
-            <tr>
-              <td><label for="zipcode">Code postale :</label></td>
-              <td><input type="number" id="zipcode" name="zipcode" /></td>
-            </tr>
+          <label for="zipcode">Code postale :</label>
+          <input type="number" id="zipcode" name="zipcode" />
 
-            <tr>
-              <td><label for="streetname">Rue :</label></td>
-              <td><input type="text" id="streetname" name="streetname" /></td>
-            </tr>
+          <label for="streetname">Rue :</label>
+          <input type="text" id="streetname" name="streetname" />
 
-            <tr>
-              <td><label for="country">Pays :</label></td>
-              <td><input type="text" id="country" name="country" /></td>
-            </tr>
-          </table>
+          <label for="country">Pays :</label>
+          <input type="text" id="country" name="country" />
         </fieldset>
 
         <fieldset>
-          <table>
-            <tr>
-              <td><label for="phonenumber">Numéro de téléphone :</label></td>
-              <td>
-                <input
-                  type="text"
-                  id="phonenumber"
-                  name="phonenumber"
-                  maxlength="10"
-                  required
-                />
-              </td>
-            </tr>
+          <label for="phonenumber">Numéro de téléphone :</label>
+          <input
+            type="text"
+            id="phonenumber"
+            name="phonenumber"
+            maxlength="10"
+            required
+          />
 
-            <tr>
-              <td><label for="birthdate">Date de naissance :</label></td>
-              <td>
-                <input
-                  type="number"
-                  id="birthdate"
-                  name="birthdate"
-                  min="16"
-                  max="64"
-                />
-              </td>
-            </tr>
+          <label for="birthdate">Date de naissance :</label>
+          <input
+            type="number"
+            id="birthdate"
+            name="birthdate"
+            min="16"
+            max="64"
+          />
 
-            <tr>
-              <td><label for="birthcountry">Pays de naissance :</label></td>
-              <td>
-                <select name="birthcountry" id="birthcountry">
-                  <option selected disabled>Choisissez un pays</option>
-                  <option disabled align="center">--Europe--</option>
-                  <option value="france">France</option>
-                  <option value="belgium">Belgique</option>
-                  <option disabled align="center">--Amérique--</option>
-                  <option value="canada">Canada</option>
-                </select>
-              </td>
-            </tr>
+          <label for="birthcountry">Pays de naissance :</label>
 
-            <tr>
-              <td><label for="degree">Dernier diplôme obtenu : </label></td>
-              <td>
-                <select name="degree" id="degree">
-                  <option selected disabled>Choisissez un diplôme</option>
-                  <option disabled align="center">Bac +5</option>
-                  <option value="bac5-math">Master de mathématiques</option>
-                  <option value="bac5-info">Master d'informatique</option>
-                  <option disabled align="center">Bac +3</option>
-                  <option value="bac3-math">Licence de mathématiques</option>
-                  <option value="bac3-info">Licence pro d'informatique</option>
-                  <option disabled align="center">Bac +2</option>
-                  <option value="dut-info">D.U.T Informatique</option>
-                  <option value="bts-info">BTS Informatique</option>
-                  <option disabled align="center">Bac</option>
-                  <option value="bac-s">Bac option scientifique</option>
-                  <option value="bep">BEP</option>
-                  <option disabled align="center">Autre</option>
-                  <option value="none">Aucun</option>
-                </select>
-              </td>
-            </tr>
+          <select name="birthcountry" id="birthcountry">
+            <option selected disabled>Choisissez un pays</option>
+            <option disabled align="center">--Europe--</option>
+            <option value="france">France</option>
+            <option value="belgium">Belgique</option>
+            <option disabled align="center">--Amérique--</option>
+            <option value="canada">Canada</option>
+          </select>
 
-            <tr>
-              <td><label for="training">Formation en cours* :</label></td>
-              <td>
-                <input type="text" id="training" name="training" required />
-              </td>
-            </tr>
+          <label for="degree">Dernier diplôme obtenu : </label>
 
-            <tr>
-              <td><label for="training-module">Modules étudiés :</label></td>
-              <td>
-                <input
-                  type="text"
-                  id="training-module"
-                  name="training-module"
-                />
-              </td>
-            </tr>
+          <select name="degree" id="degree">
+            <option selected disabled>Choisissez un diplôme</option>
+            <option disabled align="center">Bac +5</option>
+            <option value="bac5-math">Master de mathématiques</option>
+            <option value="bac5-info">Master d'informatique</option>
+            <option disabled align="center">Bac +3</option>
+            <option value="bac3-math">Licence de mathématiques</option>
+            <option value="bac3-info">Licence pro d'informatique</option>
+            <option disabled align="center">Bac +2</option>
+            <option value="dut-info">D.U.T Informatique</option>
+            <option value="bts-info">BTS Informatique</option>
+            <option disabled align="center">Bac</option>
+            <option value="bac-s">Bac option scientifique</option>
+            <option value="bep">BEP</option>
+            <option disabled align="center">Autre</option>
+            <option value="none">Aucun</option>
+          </select>
 
-            <tr>
-              <td></td>
-            </tr>
+          <label for="training">Formation en cours* :</label>
+          <input type="text" id="training" name="training" required />
 
-            <tr>
-              <td></td>
-              <td></td>
-            </tr>
-          </table>
+          <label for="training-module">Modules étudiés :</label>
+          <input type="text" id="training-module" name="training-module" />
+
+          <legend>Langues étudiées</legend>
+          <div>
+            <input type="checkbox" id="french" name="french" />
+            <label for="french">Français</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="anglais" name="anglais" />
+            <label for="anglais">Anglais</label>
+          </div>
         </fieldset>
       </form>
     </tbody>
