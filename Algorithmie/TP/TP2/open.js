@@ -27,50 +27,38 @@ Tant que le solde le permet, demandez au client s'il souhaite effectuer un autre
 Affichez le nouveau solde et le montant du découvert ou "solde insuffisant".
  */
 
-let operations = [];
-let sold = -1;
-let overdraft = -1;
-
 function askOverdraft() {
-  do {
-    overdraft = prompt("Saisissez le montant du découvert entre 100 et 2000€");
-    overdraft = parseInt(overdraft);
-    operations.push({
-      type: "createOverdraft",
-      amount: overdraft,
-      accepted: overdraft >= 100 && overdraft <= 2000,
-    });
-  } while (overdraft < 100 || overdraft > 2000);
-  return overdraft;
-}
-
-function askSold() {
-  do {
-    sold = prompt("Saisissez le montant du solde (minimum 500€)");
-    sold = parseInt(sold);
-    operations.push({
-      type: "createSold",
-      amount: sold,
-      accepted: sold >= 500,
-    });
-  } while (sold < 500);
-  return sold;
-}
-
-function open() {
-  console.log("Bienvenue chez GMT Bank");
+  let overdraft = -1;
   let isOverdraft = prompt(
     "Voulez-vous avoir un découvert (y ou Y pour oui, n'importe quel caractère pour non)"
   );
   if (isOverdraft == "y" || isOverdraft == "Y") {
-    overdraft = askOverdraft();
+    do {
+      overdraft = prompt(
+        "Saisissez le montant du découvert entre 100 et 2000€"
+      );
+      overdraft = parseInt(overdraft);
+    } while (overdraft < 100 || overdraft > 2000);
+    return overdraft;
+  } else {
+    return 0;
   }
-  sold = askSold();
-
-  console.log("Découvert : " + overdraft);
-  console.log("Solde : " + sold);
-
-  console.log(operations);
 }
 
-export { open };
+function askSold() {
+  let sold = -1;
+  do {
+    sold = prompt("Saisissez le montant du solde (minimum 500€)");
+    sold = parseInt(sold);
+  } while (sold < 500);
+  return sold;
+}
+
+console.log("Bienvenue chez GMT Bank");
+let overdraft = askOverdraft();
+let sold = askSold();
+
+console.log("Découvert : " + overdraft);
+console.log("Solde : " + sold);
+
+export { askOverdraft, askSold };
