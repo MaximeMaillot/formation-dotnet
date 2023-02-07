@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="election.css" />
+    <title>Notre projet</title>
+  </head>
+  <body>
+    <thead>
+      <h1 class="centered">
+        <strong class="blue">Parce que c'est</strong>
+        <strong class="white">NOTRE</strong>
+        <strong class="red">projet</strong>
+      </h1>
+    </thead>
+    <tbody>
+      <form>
+        <h2 class="centered">Vos informations personnelles</h2>
+        <h3 class="centered">Qui seront communiqués à nos sponsors</h3>
+        <div class="centered">
+          <label for="firstname">Prénom</label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            required
+            minlength="1"
+          />
+
+          <label for="lastname">Nom</label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            required
+            minlength="1"
+          />
+        </div>
+
+        <h2 class="centered">Votre vote</h2>
+        <h3 class="centered">Qui sera jugé</h3>
+
+        <div class="centered">
+          <select name="election" id="election" required>
+            <option disabled selected>Choisissez votre délégué·e</option>
+            <option value="Margot">Margot</option>
+            <option value="Fred">Frederique</option>
+            <option value="Senia">Senia</option>
+            <option value="Thibault">Thibault</option>
+            <option value="Gianni">Gianni</option>
+            <option value="Sylvie">Sylvie</option>
+            <option value="Maxime">Maxime</option>
+            <option value="Justine">Justine</option>
+            <option value="Pamela">Pamela</option>
+            <option value="Lazare">Lazare</option>
+            <option value="Avril">Avril</option>
+            <option value="Julien">Julien</option>
+            <option value="Kalilou">Kalilou</option>
+            <option value="Lucie">Lucie</option>
+            <option value="Romain">Romain</option>
+          </select>
+        </div>
+        <div class="centered">
+          <select name="election-sub" id="election-sub" required>
+            <option disabled selected>Choisissez votre suppléant·e</option>
+            <option value="Margot">Margot</option>
+            <option value="Fred">Frederique</option>
+            <option value="Senia">Senia</option>
+            <option value="Thibault">Thibault</option>
+            <option value="Gianni">Gianni</option>
+            <option value="Sylvie">Sylvie</option>
+            <option value="Maxime">Maxime</option>
+            <option value="Justine">Justine</option>
+            <option value="Pamela">Pamela</option>
+            <option value="Lazare">Lazare</option>
+            <option value="Avril">Avril</option>
+            <option value="Julien">Julien</option>
+            <option value="Kalilou">Kalilou</option>
+            <option value="Lucie">Lucie</option>
+            <option value="Romain">Romain</option>
+          </select>
+        </div>
+        <img
+          class="img-center"
+          alt="macron"
+          src=".//img/Emmanuel_Macron_June_2022_(cropped).jpg"
+        />
+        <div class="right-aligned">
+          <p>Lu et approuvé</p>
+        </div>
+        <div class="right-aligned">
+          <button type="submit">Valider mon vote</button>
+        </div>
+      </form>
+    </tbody>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+body {
+    background-color: #808080;
+}
+
+div {
+    margin-top: 1em;
+}
+
+.centered {
+    text-align:center
+}
+
+label {
+    margin-right: 2em;
+}
+
+input {
+    margin-right: 1em;
+}
+
+.right-aligned {
+    text-align: right;
+    margin-right: 5em;
+}
+
+h3 {
+    font-size: 6px
+}
+
+.red {
+    color: #ff0000
+}
+
+.white {
+    color: #ffffff
+}
+
+.blue {
+    color: #0000ff
+}
+
+.img-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
