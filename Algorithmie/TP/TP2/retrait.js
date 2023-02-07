@@ -103,4 +103,11 @@ function main() {
 
 //main();
 
-export { askOverdraft, askSold, askWithdraw, getWithdrawableAmount, main };
+export {
+  askOverdraft,
+  askSold,
+  askWithdraw,
+  getWithdrawableAmount,
+  getWithdrawLimit,
+  main,
+};
