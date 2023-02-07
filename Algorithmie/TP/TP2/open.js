@@ -69,11 +69,15 @@ function askSold() {
 
 // EXECUTION
 
-console.log("Bienvenue chez GMT Bank");
-let overdraft = askOverdraft();
-let sold = askSold();
+function main() {
+  console.log("Bienvenue chez GMT Bank");
+  let overdraft = askOverdraft();
+  let sold = askSold();
 
-console.log("Découvert : " + overdraft);
-console.log("Solde : " + sold);
+  console.log("Découvert : " + overdraft);
+  console.log("Solde : " + sold);
+}
 
-export { askOverdraft, askSold };
+//main()
+
+export { askOverdraft, askSold, main };

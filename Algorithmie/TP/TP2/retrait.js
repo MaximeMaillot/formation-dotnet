@@ -73,28 +73,34 @@ function askWithdraw() {
   return withdraw;
 }
 
-console.log("Bienvenue chez GMT Bank");
-let overdraft = askOverdraft();
-let sold = askSold();
-let newSold = { sold: sold, accepted: true };
-let withdraw = -1;
-while (sold > -overdraft && newSold.accepted && withdraw != 0) {
-  withdraw = askWithdraw();
-  if (withdraw > 0) {
-    newSold = getWithdrawableAmount(sold, overdraft, withdraw);
-    if (newSold.accepted) {
-      sold = newSold.sold;
-      if (sold == 0) {
-        console.log("solde " + sold);
-        console.log("découvert : " + overdraft);
+// EXECUTION
+
+function main() {
+  console.log("Bienvenue chez GMT Bank");
+  let overdraft = askOverdraft();
+  let sold = askSold();
+  let newSold = { sold: sold, accepted: true };
+  let withdraw = -1;
+  while (sold > -overdraft && newSold.accepted && withdraw != 0) {
+    withdraw = askWithdraw();
+    if (withdraw > 0) {
+      newSold = getWithdrawableAmount(sold, overdraft, withdraw);
+      if (newSold.accepted) {
+        sold = newSold.sold;
+        if (sold == 0) {
+          console.log("solde " + sold);
+          console.log("découvert : " + overdraft);
+        } else {
+          console.log("solde " + sold);
+          console.log("découvert : " + overdraft);
+        }
       } else {
-        console.log("solde " + sold);
-        console.log("découvert : " + overdraft);
+        console.log("solde insuffisant");
       }
-    } else {
-      console.log("solde insuffisant");
     }
   }
 }
 
-export { askOverdraft, askSold, askWithdraw, getWithdrawableAmount };
+//main();
+
+export { askOverdraft, askSold, askWithdraw, getWithdrawableAmount, main };

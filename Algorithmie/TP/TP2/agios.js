@@ -80,13 +80,17 @@ function askDay() {
 
 // EXECUTION
 
-let overdraft = askOverdraft();
+function main() {
+  let overdraft = askOverdraft();
 
-if (overdraft != 0) {
-  let day = askDay();
-  let agios = calculateAgios(overdraft, day);
+  if (overdraft != 0) {
+    let day = askDay();
+    let agios = calculateAgios(overdraft, day);
 
-  console.log("Agios (€) : " + agios);
+    console.log("Agios (€) : " + agios);
+  }
 }
 
-export { calculateAgios, askOverdraft, askDay };
+//main();
+
+export { calculateAgios, askOverdraft, askDay, main };
