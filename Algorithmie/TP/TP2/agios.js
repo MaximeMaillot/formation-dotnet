@@ -24,11 +24,23 @@ import {
   RATE as rate,
 } from "./constant.js";
 
+/**
+ * Return the agios tax
+ * @param {Number} overdraft
+ * @param {Number} day
+ * @returns {Number}
+ */
 function calculateAgios(overdraft, day) {
   let agios = Math.round(((overdraft * day * rate) / 365) * 100) / 100;
   return agios;
 }
 
+/**
+ * ask user via prompt for their overdraft amount
+ * the minimum and maximum overdraft is defined in constant.js
+ * return 0 if their input is incorrect
+ * @returns {Number}
+ */
 function askOverdraft() {
   let overdraft = prompt("Montant du découvert :");
   overdraft = parseInt(overdraft);
@@ -47,6 +59,11 @@ function askOverdraft() {
   return overdraft;
 }
 
+/**
+ * ask user via prompt for a timelength in days of their overdraft
+ * return 0 if their input is incorrect
+ * @returns {Number}
+ */
 function askDay() {
   let day = prompt("Durée du découvert : ");
   day = parseInt(day);

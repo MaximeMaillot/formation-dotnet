@@ -14,11 +14,24 @@ Demandez au client le montant à transférer sur le compte (>= 500€) pour l'ou
 En sortie, votre algorithme affiche la somme initiale et le montant du découvert (zéro s'il n'a pas opté pour le découvert).
  */
 
+/**
+ * return the maximum withdrawable amount
+ * @param {Number} sold
+ * @param {Number} overdraft
+ * @returns {Number}
+ */
 function getWithdrawLimit(sold, overdraft) {
   return sold + overdraft;
 }
 
-function withdrawAmount(sold, overdraft, amount) {
+/**
+ * return the sold left and if the withdraw was accepted
+ * @param {Number} sold
+ * @param {Number} overdraft
+ * @param {Number} amount
+ * @returns {Object}
+ */
+function getWithdrawableAmount(sold, overdraft, amount) {
   let authorizedWithdraw = getWithdrawLimit(sold, overdraft);
   if (authorizedWithdraw >= amount) {
     sold -= amount;
@@ -28,47 +41,60 @@ function withdrawAmount(sold, overdraft, amount) {
   }
 }
 
+/**
+ * Ask the user for their overdraft
+ * @returns {Number}
+ */
 function askOverdraft() {
   let overdraft = prompt("Saisissez le montant de votre découvert :");
   overdraft = parseInt(overdraft);
   return overdraft;
 }
 
+/**
+ * Ask the user for their sold
+ * @returns Number
+ */
 function askSold() {
   let sold = prompt("Saisissez le montant de votre solde : ");
   sold = parseInt(sold);
   return sold;
 }
 
-function askWithdraw(sold, overdraft) {
+/**
+ * Ask the user how much they want to withdraw
+ * @param {Number} sold
+ * @param {Number} overdraft
+ * @returns
+ */
+function askWithdraw() {
   let withdraw = prompt("Saisissez le montant de votre retrait :");
   withdraw = parseInt(withdraw);
-  if (withdraw == 0) {
-    return 0;
-  } else {
-    let newSold = withdrawAmount(sold, overdraft, withdraw);
-    return newSold;
-  }
+  return withdraw;
 }
 
 console.log("Bienvenue chez GMT Bank");
 let overdraft = askOverdraft();
 let sold = askSold();
 let newSold = { sold: sold, accepted: true };
-while (sold > -overdraft && newSold.accepted) {
-  newSold = askWithdraw(sold, overdraft);
-  if (newSold.accepted) {
-    sold = newSold.sold;
-    if (sold == 0) {
-      console.log("solde " + sold);
-      console.log("découvert : " + overdraft);
+let withdraw = -1;
+while (sold > -overdraft && newSold.accepted && withdraw != 0) {
+  withdraw = askWithdraw();
+  if (withdraw > 0) {
+    newSold = getWithdrawableAmount(sold, overdraft, withdraw);
+    if (newSold.accepted) {
+      sold = newSold.sold;
+      if (sold == 0) {
+        console.log("solde " + sold);
+        console.log("découvert : " + overdraft);
+      } else {
+        console.log("solde " + sold);
+        console.log("découvert : " + overdraft);
+      }
     } else {
-      console.log("solde " + sold);
-      console.log("découvert : " + overdraft);
+      console.log("solde insuffisant");
     }
-  } else {
-    console.log("solde insuffisant");
   }
 }
 
-export { askOverdraft, askSold, askWithdraw };
+export { askOverdraft, askSold, askWithdraw, getWithdrawableAmount };

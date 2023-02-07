@@ -27,6 +27,14 @@ Tant que le solde le permet, demandez au client s'il souhaite effectuer un autre
 Affichez le nouveau solde et le montant du découvert ou "solde insuffisant".
  */
 
+import { MIN_SOLD, MIN_OVERDRAFT, MAX_OVERDRAFT } from "./constant.js";
+
+/**
+ * Ask the user for their overdraft
+ * the minimum and maximum is defined in constant.js
+ * return 0 if they don't have an overdraft
+ * @returns {Number}
+ */
 function askOverdraft() {
   let overdraft = -1;
   let isOverdraft = prompt(
@@ -38,21 +46,28 @@ function askOverdraft() {
         "Saisissez le montant du découvert entre 100 et 2000€"
       );
       overdraft = parseInt(overdraft);
-    } while (overdraft < 100 || overdraft > 2000);
+    } while (overdraft < MIN_OVERDRAFT || overdraft > MAX_OVERDRAFT);
     return overdraft;
   } else {
     return 0;
   }
 }
 
+/**
+ * ask the user for their sold
+ * the minimum is defined in constant.js
+ * @returns {Number}
+ */
 function askSold() {
   let sold = -1;
   do {
     sold = prompt("Saisissez le montant du solde (minimum 500€)");
     sold = parseInt(sold);
-  } while (sold < 500);
+  } while (sold < MIN_SOLD);
   return sold;
 }
+
+// EXECUTION
 
 console.log("Bienvenue chez GMT Bank");
 let overdraft = askOverdraft();
