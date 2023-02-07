@@ -21,17 +21,18 @@ Le nombre de jours compris entre 1 et 365.
 let rate = 0.1;
 let minOverdraft = 100;
 let maxOverdraft = 2000;
-let isOverdraft = false;
+let isOverdraft = true;
 
 let overdraft = prompt("Montant du découvert :");
 overdraft = parseInt(overdraft);
-while ((overdraft < minOverdraft || overdraft > maxOverdraft) && !isOverdraft) {
+while ((overdraft < minOverdraft || overdraft > maxOverdraft) && isOverdraft) {
   if (overdraft == 0) {
     console.log("Découvert non autorisé => pas d'agios");
-    isOverdraft;
+    isOverdraft = false;
+  } else {
+    overdraft = prompt("Montant du découvert :");
+    overdraft = parseInt(overdraft);
   }
-  overdraft = prompt("Montant du découvert :");
-  overdraft = parseInt(overdraft);
 }
 
 if (isOverdraft) {

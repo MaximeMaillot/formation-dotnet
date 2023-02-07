@@ -18,21 +18,24 @@ Le nombre de jours compris entre 1 et 365.
 
 // Agios = (montant utilisé du découvert * nombre de jours d'utilisation * taux de la banque) / 365 Le taux de banque = 10 / 100 = 0.1
 
-let rate = 0.1;
-let minOverdraft = 100;
-let maxOverdraft = 2000;
+import {
+  MIN_OVERDRAFT as minOverdraft,
+  MAX_OVERDRAFT as maxOverdraft,
+  RATE as rate,
+} from "./constant.js";
 
 let operations = [];
 
 function calculateAgios(overdraft, day) {
   let agios = Math.round(((overdraft * day * rate) / 365) * 100) / 100;
+  /*
   operations.push({
     type: "checkAgios",
     overdraft: sold,
     day: day,
     agios: agios,
     accepted: true,
-  });
+  });*/
   return agios;
 }
 
@@ -60,4 +63,4 @@ function agios() {
   console.log("Agios (€) : " + agios);
 }
 
-export { agios };
+export { calculateAgios, agios };
