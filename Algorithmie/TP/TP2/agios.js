@@ -24,43 +24,52 @@ import {
   RATE as rate,
 } from "./constant.js";
 
-let operations = [];
-
 function calculateAgios(overdraft, day) {
   let agios = Math.round(((overdraft * day * rate) / 365) * 100) / 100;
-  /*
-  operations.push({
-    type: "checkAgios",
-    overdraft: sold,
-    day: day,
-    agios: agios,
-    accepted: true,
-  });*/
   return agios;
 }
 
-function agios() {
+function askOverdraft() {
   let overdraft = prompt("Montant du découvert :");
   overdraft = parseInt(overdraft);
+
   while (overdraft < minOverdraft || overdraft > maxOverdraft) {
     if (overdraft == 0) {
       console.log("Découvert non autorisé => pas d'agios");
-      throw new Error();
+      return 0;
     }
     overdraft = prompt("Montant du découvert :");
     overdraft = parseInt(overdraft);
   }
+  if (overdraft == "NaN") {
+    return 0;
+  }
+  return overdraft;
+}
 
+function askDay() {
   let day = prompt("Durée du découvert : ");
   day = parseInt(day);
   while (day < 1 || day > 365) {
     day = prompt("Durée du découvert : ");
     day = parseInt(day);
   }
+  if (day == "NaN") {
+    return 0;
+  } else {
+    return day;
+  }
+}
 
+// EXECUTION
+
+let overdraft = askOverdraft();
+
+if (overdraft != 0) {
+  let day = askDay();
   let agios = calculateAgios(overdraft, day);
 
   console.log("Agios (€) : " + agios);
 }
 
-export { calculateAgios, agios };
+export { calculateAgios, askOverdraft, askDay };
