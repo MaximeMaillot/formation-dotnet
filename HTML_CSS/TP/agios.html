@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="agios.css" />
+    <script type="module" src="./form.js"></script>
+    <title>GMT Bank - Agios</title>
+  </head>
+  <body>
+    <thead>
+      <h1>GMT Bank</h1>
+    </thead>
+    <tbody>
+      <form id="form" method="get">
+        <h2>Calculez vos agios</h2>
+        <div>
+          <label for="overdraft">Rentrez le montant de votre découvert</label>
+          <input
+            type="number"
+            id="overdraft"
+            name="overdraft"
+            min="0"
+            required
+          />
+        </div>
+        <div>
+          <label for="day">Durée du découvert</label>
+          <input type="number" id="day" name="day" min="0" max="365" required />
+        </div>
+
+        <input type="submit" value="Valider" onclick="submitForm()" />
+      </form>
+      <p>Vos agios : <strong id="agios">25</strong>€</p>
+    </tbody>
+  </body>
+</html>
