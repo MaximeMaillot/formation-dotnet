@@ -10,29 +10,43 @@
   </head>
   <body>
     <thead>
-      <h1>GMT Bank</h1>
+      <div class="logo"><img src="GMT (1).png" /></div>
+      <div class="navbar">
+        <a href="#home">Creation</a>
+        <a href="#news">Retrait</a>
+        <a href="#contact">Agios</a>
+      </div>
     </thead>
     <tbody>
-      <form id="form" method="get">
-        <h2>Calculez vos agios</h2>
-        <div>
-          <label for="overdraft">Rentrez le montant de votre découvert</label>
-          <input
-            type="number"
-            id="overdraft"
-            name="overdraft"
-            min="0"
-            required
-          />
+      <form class="main" id="form" method="get">
+        <h2 class="centered">Calculez vos Agios</h2>
+        <div class="box">
+          <div class="lineInput">
+            <label for="overdraft">Rentrez le montant de votre découvert</label>
+            <input
+              type="number"
+              id="overdraft"
+              name="overdraft"
+              min="0"
+              required
+            />
+          </div>
+          <div class="lineInput">
+            <label for="day">Durée du découvert</label>
+            <input
+              type="number"
+              id="day"
+              name="day"
+              min="0"
+              max="365"
+              required
+            />
+          </div>
         </div>
-        <div>
-          <label for="day">Durée du découvert</label>
-          <input type="number" id="day" name="day" min="0" max="365" required />
+        <div class="centered">
+          <input type="submit" value="Calculez les agios" />
         </div>
-
-        <input type="submit" value="Valider" onclick="submitForm()" />
       </form>
-      <p>Vos agios : <strong id="agios">25</strong>€</p>
     </tbody>
   </body>
 </html>

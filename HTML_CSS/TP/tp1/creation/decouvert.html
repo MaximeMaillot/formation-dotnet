@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../style.css" />
+    <title>Découvert</title>
+  </head>
+  <body>
+    <div>
+      <h1>Bienvenue chez GTM Bank</h1>
+      <form method="post" action="./depot.html">
+        <label for="montantDecouvert"
+          >Saisissez le montant du découvert entre 100 € et 2000 € :</label
+        >
+        <input
+          type="number"
+          id="montantDecouvert"
+          name="montantDecouvert"
+          min="100"
+          max="2000"
+        /><br /><br />
+        <input type="submit" value="Envoyer" />
+      </form>
+    </div>
+  </body>
+</html>

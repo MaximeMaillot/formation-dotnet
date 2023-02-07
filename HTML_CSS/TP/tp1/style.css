@@ -1,0 +1,32 @@
+* {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #0B2F5E;
+
+}
+/* h1{
+    color: #0B2F5E;
+
+} */
+
+body{
+    background-color: #0B2F5E;
+    padding-top: 10px;
+}
+
+div{
+    background-color: #89B9F7;
+    width: 38%;
+    height: 300px;
+    border-radius: 50px;
+    box-shadow: #02053d 10px 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 70px;
+}
+[type="submit"]{
+   margin: 10px;
+}
+form{
+    margin: 10px;
+}
