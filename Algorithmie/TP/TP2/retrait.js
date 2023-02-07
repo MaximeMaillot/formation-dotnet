@@ -14,56 +14,61 @@ Demandez au client le montant à transférer sur le compte (>= 500€) pour l'ou
 En sortie, votre algorithme affiche la somme initiale et le montant du découvert (zéro s'il n'a pas opté pour le découvert).
  */
 
-let operations = [];
-
 function getWithdrawLimit(sold, overdraft) {
   return sold + overdraft;
 }
 
-function withdrawAmount(amount) {
+function withdrawAmount(sold, overdraft, amount) {
   let authorizedWithdraw = getWithdrawLimit(sold, overdraft);
-  if (getWithdrawLimit <= amount) {
-    operations.push({
-      type: "withdrawAmount",
-      amount: amount,
-      oldSold: sold,
-      newSold: sold - amount,
-      accepted: true,
-    });
+  if (authorizedWithdraw >= amount) {
     sold -= amount;
+    return { sold: sold, accepted: true };
   } else {
-    operations.push({
-      type: "withdrawAmount",
-      amount: amount,
-      oldSold: sold,
-      newSold: sold,
-      accepted: false,
-    });
+    return { sold: sold, accepted: false };
+  }
+}
+
+function askOverdraft() {
+  let overdraft = prompt("Saisissez le montant de votre découvert :");
+  overdraft = parseInt(overdraft);
+  return overdraft;
+}
+
+function askSold() {
+  let sold = prompt("Saisissez le montant de votre solde : ");
+  sold = parseInt(sold);
+  return sold;
+}
+
+function askWithdraw(sold, overdraft) {
+  let withdraw = prompt("Saisissez le montant de votre retrait :");
+  withdraw = parseInt(withdraw);
+  if (withdraw == 0) {
+    return 0;
+  } else {
+    let newSold = withdrawAmount(sold, overdraft, withdraw);
+    return newSold;
+  }
+}
+
+console.log("Bienvenue chez GMT Bank");
+let overdraft = askOverdraft();
+let sold = askSold();
+let newSold = { sold: sold, accepted: true };
+while (sold > -overdraft && newSold.accepted) {
+  newSold = askWithdraw(sold, overdraft);
+  if (newSold.accepted) {
+    sold = newSold.sold;
+    if (sold == 0) {
+      console.log("solde " + sold);
+      console.log("découvert : " + overdraft);
+    } else {
+      console.log("solde " + sold);
+      console.log("découvert : " + overdraft);
+    }
+  } else {
     console.log("solde insuffisant");
   }
 }
 
-function retrait() {
-  console.log("Bienvenue chez GMT Bank");
-  let overdraft = prompt("Saisissez le montant de votre découvert :");
-  overdraft = parseInt(overdraft);
-  let sold = prompt("Saisissez le montant de votre solde : ");
-  sold = parseInt(sold);
-  while (sold + overdraft < 0) {
-    sold = prompt("Saisissez le montant de votre solde : ");
-    sold = parseInt(sold);
-  }
-
-  let withdraw = prompt("Saisissez le montant de votre retrait :");
-  withdraw = parseInt(withdraw);
-  if (withdraw == 0) {
-    console.log("quitter");
-  } else {
-    withdrawAmount(withdraw);
-  }
-
-  console.log("solde " + sold);
-  console.log("découvert : " + overdraft);
-}
-
-export { retrait };
+export { askOverdraft, askSold, askWithdraw };
