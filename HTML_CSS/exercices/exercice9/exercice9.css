@@ -1,0 +1,25 @@
+.header {
+    height:5vh;
+}
+
+.container {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 5px;
+    column-gap: 5px;
+}
+
+.box {
+    display:grid;
+    grid-template-rows: 3fr 1fr;
+    width: 25vw;
+    height: 25vh;
+}
+
+.box-top {
+    background-color:#575656
+}
+
+.box-bottom {
+    background-color:#9c9c9c
+}
