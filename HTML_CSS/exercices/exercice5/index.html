@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="exercice5.css" />
     <title>Exercice 5</title>
   </head>
   <body>
@@ -14,139 +15,240 @@
     <tbody>
       <form>
         <fieldset>
-          <label for="last-name">Nom* :</label>
-          <input type="text" id="last-name" name="last-name" required /> <br />
+          <div>
+            <label class="inline-block" for="last-name">Nom* :</label>
+            <input
+              class="inline-block"
+              type="text"
+              id="last-name"
+              name="last-name"
+              required
+            />
+            <label class="inline-block" for="first-name">Prénom* :</label>
+            <input
+              class="inline-block"
+              type="text"
+              id="first-name"
+              name="first-name"
+              required
+            />
+          </div>
+          <div>
+            <label class="inline-block" for="city">Ville :</label>
+            <input class="inline-block" type="text" id="city" name="city" />
 
-          <label for="first-name">Prénom* :</label>
-          <input type="text" id="first-name" name="first-name" required />
-          <br />
+            <label class="inline-block" for="zipcode">Code postale :</label>
+            <input
+              class="inline-block"
+              type="number"
+              id="zipcode"
+              name="zipcode"
+            />
 
-          <label for="city">Ville :</label>
-          <input type="text" id="city" name="city" /> <br />
+            <label class="inline-block" for="street-name">Rue :</label>
+            <input
+              class="inline-block"
+              type="text"
+              id="street-name"
+              name="street-name"
+            />
 
-          <label for="zipcode">Code postale :</label>
-          <input type="number" id="zipcode" name="zipcode" /> <br />
-
-          <label for="street-name">Rue :</label>
-          <input type="text" id="street-name" name="street-name" /> <br />
-
-          <label for="country">Pays :</label>
-          <input type="text" id="country" name="country" /> <br />
-
-          <label for="email">Adresse email* :</label
-          ><input type="email" name="email" id="email" /><br />
-
-          <label for="phone-number">Numéro de téléphone* :</label>
-          <input
-            type="text"
-            id="phone-number"
-            name="phone-number"
-            maxlength="10"
-            required
-          />
-          <br />
-
-          <label for="birth-date">Date de naissance :</label>
-          <input
-            type="date"
-            id="birth-date"
-            name="birth-date"
-            min="01/01/2007"
-            max="01/01/1959"
-          />
-          <br />
-
-          <label for="birth-country">Pays de naissance :</label>
-          <select name="birth-country" id="birth-country">
-            <option selected disabled>Choisissez un pays</option>
-            <optgroup label="--Europe--"></optgroup>
-            <option value="france">France</option>
-            <option value="belgium">Belgique</option>
-            <optgroup label="--Amérique--"></optgroup>
-            <option value="canada">Canada</option>
-          </select>
-          <br />
-
-          <label for="degree">Dernier diplôme obtenu : </label>
-          <select name="degree" id="degree">
-            <option selected disabled>Choisissez un diplôme</option>
-            <optgroup label="Bac +5"></optgroup>
-            <option value="bac5-math">Master de mathématiques</option>
-            <option value="bac5-info">Master d'informatique</option>
-            <optgroup label="Bac +3"></optgroup>
-            <option value="bac3-math">Licence de mathématiques</option>
-            <option value="bac3-info">Licence pro d'informatique</option>
-            <optgroup label="Bac +2"></optgroup>
-            <option value="dut-info">D.U.T Informatique</option>
-            <option value="bts-info">BTS Informatique</option>
-            <optgroup label="Bac"></optgroup>
-            <option value="bac-s">Bac option scientifique</option>
-            <option value="bep">BEP</option>
-            <optgroup label="Bac +3"></optgroup>
-            <option value="none">Aucun</option>
-          </select>
-          <br />
-
-          <label for="training">Formation en cours* :</label>
-          <input type="text" id="training" name="training" required /> <br />
-
-          <label for="training-module">Modules étudiés :</label>
-          <input type="text" id="training-module" name="training-module" />
-          <br />
+            <label class="inline-block" for="country">Pays :</label>
+            <input
+              class="inline-block"
+              type="text"
+              id="country"
+              name="country"
+            />
+          </div>
 
           <div>
-            <p>Langues étudiées</p>
-            <input type="checkbox" id="french" name="french" />
-            <label for="french">Français</label>
-            <input type="checkbox" id="anglais" name="anglais" />
-            <label for="anglais">Anglais</label>
+            <label class="inline-block" for="email">Adresse email* :</label
+            ><input class="inline-block" type="email" name="email" id="email" />
+
+            <label class="inline-block" for="phone-number"
+              >Numéro de téléphone* :</label
+            >
+            <input
+              class="inline-block"
+              type="text"
+              id="phone-number"
+              name="phone-number"
+              maxlength="10"
+              required
+            />
           </div>
-          <br />
 
-          <label for="stack-techno">Liste des technologies maitrisées* :</label>
-          <input type="text" id="stack-techno" name="stack-techno" required />
-          <br />
+          <div>
+            <label class="inline-block" for="birth-date"
+              >Date de naissance :</label
+            >
+            <input
+              class="inline-block"
+              type="date"
+              id="birth-date"
+              name="birth-date"
+              min="01/01/2007"
+              max="01/01/1959"
+            />
 
-          <label for="training-start-date">Date de début du stage* :</label>
-          <input
-            type="date"
-            id="training-start-date"
-            name="training-start-date"
-            min="2023-01-01"
-            max="2023-12-31"
-            required
-          />
-          <br />
+            <label class="inline-block" for="birth-country"
+              >Pays de naissance :</label
+            >
+            <select
+              class="inline-block"
+              name="birth-country"
+              id="birth-country"
+            >
+              <option selected disabled>Choisissez un pays</option>
+              <optgroup label="--Europe--"></optgroup>
+              <option value="france">France</option>
+              <option value="belgium">Belgique</option>
+              <optgroup label="--Amérique--"></optgroup>
+              <option value="canada">Canada</option>
+            </select>
+          </div>
+          <div>
+            <label class="inline-block" for="degree"
+              >Dernier diplôme obtenu :
+            </label>
+            <select class="inline-block" name="degree" id="degree">
+              <option selected disabled>Choisissez un diplôme</option>
+              <optgroup label="Bac +5"></optgroup>
+              <option value="bac5-math">Master de mathématiques</option>
+              <option value="bac5-info">Master d'informatique</option>
+              <optgroup label="Bac +3"></optgroup>
+              <option value="bac3-math">Licence de mathématiques</option>
+              <option value="bac3-info">Licence pro d'informatique</option>
+              <optgroup label="Bac +2"></optgroup>
+              <option value="dut-info">D.U.T Informatique</option>
+              <option value="bts-info">BTS Informatique</option>
+              <optgroup label="Bac"></optgroup>
+              <option value="bac-s">Bac option scientifique</option>
+              <option value="bep">BEP</option>
+              <optgroup label="Bac +3"></optgroup>
+              <option value="none">Aucun</option>
+            </select>
+          </div>
 
-          <label for="git-link">lien git</label>
-          <input type="url" id="git-link" name="git-link" />
-          <br />
+          <div>
+            <label class="inline-block" for="training"
+              >Formation en cours* :</label
+            >
+            <input
+              class="inline-block"
+              type="text"
+              id="training"
+              name="training"
+              required
+            />
+          </div>
+          <div>
+            <label class="inline-block" for="training-module"
+              >Modules étudiés :</label
+            >
+            <input
+              class="inline-block"
+              type="text"
+              id="training-module"
+              name="training-module"
+            />
+          </div>
+          <div>
+            <p class="display-inline-block">Langues étudiées</p>
+            <input
+              class="inline-block"
+              type="checkbox"
+              id="french"
+              name="french"
+            />
+            <label class="inline-block" for="french">Français</label>
+            <input
+              class="inline-block"
+              type="checkbox"
+              id="anglais"
+              name="anglais"
+            />
+            <label class="inline-block" for="anglais">Anglais</label>
+          </div>
+          <div>
+            <label class="inline-block" for="stack-techno"
+              >Liste des technologies maitrisées* :</label
+            >
+            <input
+              class="inline-block"
+              type="text"
+              id="stack-techno"
+              name="stack-techno"
+              required
+            />
+          </div>
+          <div>
+            <label for="training-start-date">Date de début du stage* :</label>
+            <input
+              type="date"
+              id="training-start-date"
+              name="training-start-date"
+              min="2023-01-01"
+              max="2023-12-31"
+              required
+            />
+          </div>
+          <div>
+            <label class="inline-block" for="git-link">lien git</label>
+            <input
+              class="inline-block"
+              type="url"
+              id="git-link"
+              name="git-link"
+            />
+          </div>
+          <div>
+            <label class="inline-block" for="linkedin-link"
+              >lien linkedIn</label
+            >
+            <input
+              class="inline-block"
+              type="url"
+              id="linkedin-link"
+              name="linkedin-link"
+            />
+          </div>
+          <div>
+            <label class="display-block" for="cv">Choisissez votre CV* :</label>
+            <input
+              class="block"
+              type="file"
+              id="cv"
+              name="cv"
+              accept=".pdf,image/*"
+            />
+          </div>
+          <div>
+            <label class="display-inline-block" for="motivation-letter"
+              >Entrez votre lettre de motivation* :</label
+            >
+            <textarea
+              class="display-block"
+              id="motivation-letter"
+              name="motivation-letter"
+              required
+            ></textarea>
+          </div>
+          <div>
+            <label class="display-inline-block" for="comment"
+              >Avez-vous des commentaires supplémentaires ?</label
+            >
+            <textarea
+              class="display-block"
+              id="comment"
+              name="comment"
+            ></textarea>
+          </div>
 
-          <label for="linkedin-link">lien linkedIn</label>
-          <input type="url" id="linkedin-link" name="linkedin-link" />
-          <br />
-
-          <label for="cv">Choisissez votre CV* :</label>
-          <input type="file" id="cv" name="cv" accept=".pdf,image/*" />
-          <br />
-
-          <label for="motivation-letter"
-            >Entrez votre lettre de motivation* :</label
-          ><br />
-          <textarea
-            id="motivation-letter"
-            name="motivation-letter"
-            required
-          ></textarea>
-          <br />
-
-          <label for="comment"
-            >Avez-vous des commentaires supplémentaires ?</label
-          ><br />
-          <textarea id="comment" name="comment"></textarea>
-          <br />
-
-          <button type="submit">Envoyer le formulaire</button>
+          <button class="display-block" type="submit">
+            Envoyer le formulaire
+          </button>
         </fieldset>
       </form>
     </tbody>
