@@ -1,0 +1,76 @@
+/* PC */
+@media screen and (min-width:640px){
+.container {
+    display: grid;
+    grid-template-columns:repeat(4, 1fr);
+}
+
+.left-box {
+    grid-column: 1/2;
+}
+
+.center-box-container  {
+    display: grid;
+    grid-column: 2/4;
+    grid-template-columns:repeat(4, 1fr);
+}
+
+.right-box {
+    grid-column: 4/5;
+}
+
+h1 {
+    color: #ff0000;
+}
+}
+
+/* mobile */
+@media screen and (max-width:640px){
+    body {
+        background-color: orange;
+    }
+    
+    h1 {
+        color:pink;
+    }
+
+    .left-box {
+        display: none;
+    }
+    .right-box {
+        display: none;
+    }
+
+    .center-box-container  {
+        display: grid;
+        grid-template-rows:repeat(4, 1fr);
+    }
+}
+
+/* general */
+
+* {
+    box-sizing: border-box;
+}
+
+.box:nth-child(even) {
+    background-color: #001f33;
+}
+
+.box:nth-child(odd) {
+    background-color: #007ccc;
+}
+
+.box {
+    color: #ffffff;
+    margin: 10px;
+}
+
+.box h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+h1 {
+    text-align: center;
+}
