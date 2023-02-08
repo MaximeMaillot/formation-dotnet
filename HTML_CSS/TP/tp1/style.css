@@ -14,7 +14,7 @@ body{
     padding-top: 10px;
 }
 
-div{
+.container {
     background-color: #89B9F7;
     width: 38%;
     height: 300px;
@@ -24,9 +24,37 @@ div{
     margin-right: auto;
     padding: 70px;
 }
+
 [type="submit"]{
    margin: 10px;
 }
+
 form{
     margin: 10px;
+}
+
+button {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    line-height: 24px;
+    padding: 10px;
+    border-radius: 20px;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%);
+    /*box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;*/
+    border: 1px solid rgb(0, 0, 0);
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+}
+button:hover {
+    background: #1C6EA4; 
+}
+button:active {
+    background: #144E75; 
 }
