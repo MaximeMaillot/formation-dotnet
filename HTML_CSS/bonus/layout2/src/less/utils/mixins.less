@@ -1,0 +1,31 @@
+.mixin-noselect-button() {
+    cursor: pointer;
+    user-select: none;
+}
+
+.mixin-set-background-to(@bg-color) {
+    background-color: @bg-color;
+}
+
+.mixin-main-block() {
+    .mixin-set-background-to(@color_main);
+    &:hover {
+        .mixin-set-background-to(@color_main_hover);
+        .mixin-noselect-button();
+    }
+}
+
+.mixin-secondary-block() {
+    .mixin-set-background-to(@color_secondary);
+        &:hover {
+            .mixin-set-background-to(@color_secondary_hover);
+            .mixin-noselect-button();
+        }
+}
+
+.mixin-set-grid-position(@column-start: auto, @column-end: auto, @row-start: auto, @row-end: auto) {
+    grid-column-start: @column-start;
+    grid-column-end: @column-end;
+    grid-row-start: @row-start;
+    grid-row-end: @row-end;
+}
