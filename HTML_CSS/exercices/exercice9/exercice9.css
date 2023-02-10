@@ -1,5 +1,13 @@
 .header {
+    display: inline-block;
     height:5vh;
+    width: 100%;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    background-color: rgba(255, 0, 0, 0.8);
+    z-index: 99;
 }
 
 .container {
@@ -17,9 +25,39 @@
 }
 
 .box-top {
-    background-color:#575656
+    background-color:#2a2a2a;
+    text-align: center;
+    height: 20vh;
+    line-height: 20vh;
+    font-size: x-large;
+    color: white;
 }
 
 .box-bottom {
-    background-color:#9c9c9c
+    background-color:#9c9c9c;
+    height: 5vh;
+}
+
+.box:nth-child(even) {
+    position:relative;
+    top: 40%;
+    right: 40%;
+    z-index:1;
+}
+
+.box:nth-child(even) .box-top {
+    background-color: rgb(6, 6, 113);
+}
+
+.box:nth-child(even) .box-bottom {
+    background-color: rgb(88, 0, 88);
+}
+.box:nth-child(even) .box-bottom:hover {
+    background-color: rgb(220, 8, 220);
+    cursor: pointer;
+}
+
+.box-bottom:hover {
+    background-color:#bebebe;
+    cursor: pointer;
 }
