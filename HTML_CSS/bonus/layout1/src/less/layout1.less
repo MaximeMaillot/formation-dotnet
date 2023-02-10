@@ -1,17 +1,25 @@
+@max-width: 95vw;
+
+:root {
+  --color-img: #ff0000;
+  --color-form: #0000ff;
+}
+
+
 * {
     box-sizing: border-box;
     text-align: center;
 }
 
 .header {
-    width:95vw;
+    width:@max-width;
     height:5vh;
     background-color:grey;
     margin: auto;
 }
 
 .footer {
-    width:95vw;
+    width:@max-width;
     height:5vh;
     background-color:grey;
     margin: auto;
@@ -23,7 +31,7 @@
     grid-template-rows: repeat(8, 1fr);
     grid-template-columns: repeat(8, 1fr);
     height: 40vh;
-    width: 95vw;
+    width: @max-width;
     margin-left: auto;
     margin-right: auto;
     margin-top: 1vh;
@@ -49,14 +57,14 @@
 .imgSlider {
     grid-row: 1/9;
     grid-column:1/6;
-    background-color: red;
+    background-color: var(--color-img);
     margin-right: 1vw;
 }
 
 .searchForm {
     grid-row: 1/4;
     grid-column: 6/9;
-    background-color: blue;
+    background-color: var(--color-form);
     margin-bottom: 3vh;
 }
 
