@@ -351,3 +351,6 @@ MigrationBackup/
 
 # Ignore all test files
 test
+
+# ignore vscode config
+.vscode
