@@ -48,7 +48,7 @@ function isPalindromeWhile(sentence) {
   }
   return false;
 }
-
+/*
 console.log("isPalindrome");
 console.log("rats", isPalindrome("rats"));
 console.log("Elle", isPalindrome("Elle"));
@@ -63,5 +63,5 @@ console.log("isPalindromeWhile");
 console.log("rats", isPalindromeWhile("rats"));
 console.log("Elle", isPalindromeWhile("Elle"));
 console.log("Laval", isPalindromeWhile("Laval"));
-
+*/
 export { isPalindromeCheckByHalf }
