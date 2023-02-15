@@ -64,4 +64,4 @@ console.log("rats", isPalindromeWhile("rats"));
 console.log("Elle", isPalindromeWhile("Elle"));
 console.log("Laval", isPalindromeWhile("Laval"));
 
-//export { isPalindrome }
+export { isPalindromeCheckByHalf }
