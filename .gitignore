@@ -350,7 +350,7 @@ MigrationBackup/
 .ionide/
 
 # Ignore all test files
-test
+test.*
 
 # ignore vscode config
 .vscode
