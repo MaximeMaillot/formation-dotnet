@@ -13,16 +13,22 @@ function appendChildToElement(element, childType, text = null, id = null, classN
   return child
 }
 
-let capital = prompt("capital")
+function calculateInterest(capital, taux, duree) {
+  return (capital * Math.pow(1 + (taux / 100), duree)) - capital
+}
+
+let capital = prompt("Donnez votre capital")
 capital = parseFloat(capital)
-let taux = prompt("taux")
+let taux = prompt("Donnez le taux d'intérêt")
 taux = parseFloat(taux)
-let duree = prompt("duree")
+let duree = prompt("Donnez la durée")
 duree = parseInt(duree)
+
+let interest = Math.round(calculateInterest(capital, taux, duree))
 
 let container = document.querySelector(".container");
 
 appendChildToElement(container, "div", `Avec un capital initial de <b>${capital}€</b>, placé à <b>${taux}%</b> pendant </b>${duree} année(s)</b>`)
 let list = appendChildToElement(container, "ul")
-appendChildToElement(list, "li", `Le montant total des intérêts s'élèvera à <b>${capital * taux / 100 * duree}€</b>`)
-appendChildToElement(list, "li", `Le capital final à l'issue sera de <b>${capital + (capital * taux / 100 * duree)}€</b>`)
+appendChildToElement(list, "li", `Le montant total des intérêts s'élèvera à <b>${interest}€</b>`)
+appendChildToElement(list, "li", `Le capital final à l'issue sera de <b>${capital + interest}€</b>`)
