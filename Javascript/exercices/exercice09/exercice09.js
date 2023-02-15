@@ -1,17 +1,4 @@
-function appendChildToElement(element, childType, text = null, id = null, className = null) {
-  let child = document.createElement(childType);
-  if (className != null) {
-    child.setAttribute("class", className);
-  }
-  if (id != null) {
-    child.setAttribute("id", id);
-  }
-  if (text != null) {
-    child.innerHTML = text;
-  }
-  element.appendChild(child);
-  return child
-}
+import { appendChildToElement } from "../functions.js"
 
 function calculateInterest(capital, taux, duree) {
   return (capital * Math.pow(1 + (taux / 100), duree)) - capital

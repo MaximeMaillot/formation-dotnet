@@ -1,17 +1,4 @@
-/**
- *
- * @param {String} id
- * @param {String} text
- * @param {String} className
- */
-function appendDivToContainer(id, text, className = "lead") {
-  let container = document.querySelector(".container");
-  let div = document.createElement("div");
-  div.setAttribute("class", className);
-  div.setAttribute("id", id);
-  div.innerHTML = text;
-  container.appendChild(div);
-}
+import { appendChildToElement } from "../functions.js"
 
 /**
  *
@@ -35,16 +22,11 @@ function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
+let container = document.querySelector(".container");
+
 let str = prompt("Saisissez une phrase");
 
-appendDivToContainer("user-input", `Vous avez saisi : <b>${str}</b>`);
-appendDivToContainer(
-  "user-input-lower-case",
-  `La chaîne en minuscule : <b>${str.toLowerCase()}</b>`
-);
-appendDivToContainer("user-input-array", `Mise en tableau : ${str.split("")}`);
-
-appendDivToContainer(
-  "user-input-shifted",
-  `La chaîne après traitement : ${capitalizeStr(str)}`
-);
+appendChildToElement(container, "div", `Vous avez saisi : <b>${str}</b>`);
+appendChildToElement(container, "div", `La chaîne en minuscule : <b>${str.toLowerCase()}</b>`);
+appendChildToElement(container, "div", `Mise en tableau : ${str.split("")}`);
+appendChildToElement(container, "div", `La chaîne après traitement : ${capitalizeStr(str)}`);
