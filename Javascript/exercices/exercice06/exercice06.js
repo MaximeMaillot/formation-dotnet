@@ -15,7 +15,8 @@ function appendChildToElement(element, childType, text = null, id = null, classN
 
 let container = document.querySelector(".container");
 
-let cote = 5;
+let cote = prompt("Donnez la valeur du côté du carré");
+cote = parseInt(cote)
 appendChildToElement(container, "h2", `<b>Calcul de l'aire et du périmètre d'un carré</b>`)
 
 appendChildToElement(container, "div", `Les longueurs des côtés du carré étant de ${cote}cm,`, null, "lead");
@@ -26,10 +27,12 @@ appendChildToElement(listCarre, "li", `L'aire de ce carré est de ${cote * cote}
 
 appendChildToElement(container, "hr")
 
-let longueur = 7
-let largeur = 5
+let longueur = prompt("Donnez la valeur de la longueur du rectangle");
+longueur = parseInt(longueur)
+let largeur = prompt("Donnez la valeur de la largeur du rectangle");
+largeur = parseInt(largeur)
 appendChildToElement(container, "h2", `<b>Calcul de l'aire et du périmètre d'un réctangle</b>`)
-appendChildToElement(container, "div", "Les longueurs des côtés du réctangle étant de 7cm pour la longueur et 5cm pour la largeur")
+appendChildToElement(container, "div", `Les longueurs des côtés du réctangle étant de ${longueur}cm pour la longueur et ${largeur}cm pour la largeur`)
 
 let listRectangle = appendChildToElement(container, "ul")
 appendChildToElement(listRectangle, "li", `Le périmètre de ce réctangle est de ${(largeur * 2) + (longueur * 2)}cm`)
