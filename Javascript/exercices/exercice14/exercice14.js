@@ -5,8 +5,8 @@ let container = document.querySelector(".container");
 let letter = ["A", "B", "C"]
 
 let longueur = []
-for (let i = 0; i < 3; i++) {
-  longueur.push(parseInt(prompt(`Entrez la longueur ${letter[i]}${letter[(i + 1) % 3]}`)))
+for (let i = 0; i < letter.length; i++) {
+  longueur.push(parseInt(prompt(`Entrez la longueur ${letter[i]}${letter[(i + 1) % letter.length]}`)))
 }
 let text = "Le triangle "
 if (longueur[0] == longueur[1] && longueur[0] == longueur[2]) {
