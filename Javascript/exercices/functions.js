@@ -22,4 +22,24 @@ function appendChildToElement(element, childType, text = null, id = null, classN
     return child
 }
 
-export { appendChildToElement }
+/**
+ * Create an alert of level type as first child of the parent
+ * @param {Element} parent 
+ * @param {String} text 
+ * @param {String} type 
+ * @returns {Element}
+ */
+function createAlertDiv(parent, text, type = "danger") {
+    let alertDiv = document.createElement("div");
+    let className = "alert "
+    if (type == "danger") {
+        className += "alert-danger "
+    }
+    alertDiv.className = className
+    alertDiv.setAttribute("role", "alert");
+    alertDiv.innerHTML = text;
+    parent.insertBefore(alertDiv, parent.firstChild);
+    return alertDiv
+}
+
+export { appendChildToElement, createAlertDiv }
