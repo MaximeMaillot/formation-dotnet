@@ -49,12 +49,9 @@ let toPay = 0;
 
 function getToPay() {
   for (let i = 1; i < imposition.length; i++) {
-    console.log(imposition[i])
     if (imposable > imposition[i].maxAmount) {
-      console.log(`${(imposition[i].maxAmount)} * ${(imposition[i].taux / 100)}`, (imposition[i].maxAmount) * (imposition[i].taux / 100))
       toPay += ((imposition[i].maxAmount) - imposition[i - 1].maxAmount) * (imposition[i].taux / 100)
     } else {
-      console.log(`${(imposable - imposition[i - 1].maxAmount)} * ${(imposition[i].taux / 100)}`, (imposable - imposition[i - 1].maxAmount) * (imposition[i].taux / 100))
       toPay += (imposable - imposition[i - 1].maxAmount) * (imposition[i].taux / 100)
       return toPay * part
     }
