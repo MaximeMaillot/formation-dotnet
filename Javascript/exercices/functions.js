@@ -8,7 +8,6 @@
  * @returns {Element}
  */
 function appendChildToElement(element, childType, options = {}) {
-    console.log(options)
     let child = document.createElement(childType);
     if ("className" in options && options.className.length > 0) {
         child.setAttribute("class", ...options.className)
