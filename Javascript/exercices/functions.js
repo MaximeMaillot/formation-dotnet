@@ -7,7 +7,7 @@
  * @param {[String]} className 
  * @returns {Element}
  */
-function appendChildToElement(element, childType, text = null, id = null, className = []) {
+function appendChildToElement(element, childType, text = null, id = null, className = [], style = null) {
     let child = document.createElement(childType);
     if (className.length > 0) {
         child.setAttribute("class", ...className)
@@ -17,6 +17,9 @@ function appendChildToElement(element, childType, text = null, id = null, classN
     }
     if (text != null) {
         child.innerHTML = text;
+    }
+    if (style != null) {
+        child.style.cssText = style
     }
     element.appendChild(child);
     return child
