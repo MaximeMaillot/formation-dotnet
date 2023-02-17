@@ -7,19 +7,20 @@
  * @param {[String]} className 
  * @returns {Element}
  */
-function appendChildToElement(element, childType, text = null, id = null, className = [], style = null) {
+function appendChildToElement(element, childType, options = {}) {
+    console.log(options)
     let child = document.createElement(childType);
-    if (className.length > 0) {
-        child.setAttribute("class", ...className)
+    if ("className" in options && options.className.length > 0) {
+        child.setAttribute("class", ...options.className)
     }
-    if (id != null) {
-        child.setAttribute("id", id);
+    if ("id" in options && options.id != null) {
+        child.setAttribute("id", options.id);
     }
-    if (text != null) {
-        child.innerHTML = text;
+    if ("text" in options && options.text != null) {
+        child.innerHTML = options.text;
     }
-    if (style != null) {
-        child.style.cssText = style
+    if ("style" in options && options.style != null) {
+        child.style.cssText = options.style
     }
     element.appendChild(child);
     return child
