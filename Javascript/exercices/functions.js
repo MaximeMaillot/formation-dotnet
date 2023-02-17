@@ -10,7 +10,7 @@
 function appendChildToElement(element, childType, options = {}) {
     let child = document.createElement(childType);
     if ("className" in options && options.className.length > 0) {
-        child.setAttribute("class", ...options.className)
+        child.classList.add(...options.className)
     }
     if ("id" in options && options.id != null) {
         child.setAttribute("id", options.id);
