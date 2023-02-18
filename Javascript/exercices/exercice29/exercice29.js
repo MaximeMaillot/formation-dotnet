@@ -45,11 +45,13 @@ function findIntegerChainHomeMade() {
   let divisible = 2;
   let middle =  divisible + 1;
   let affichages = []
-  while (middle > divisible) {
+  while (middle > (divisible/2)) {
     middle = nbr / divisible
+    console.log(nbr, middle, divisible)
     //pair
     if (divisible % 2 == 0) {
       if (middle.toString().split(".")[1] == "5") {
+        console.log("found pair", divisible)
         let affichage = ""
         for (let i = 0; i < divisible; i++) {
           affichage += `${Math.floor(middle) - (divisible / 2 - 1) + i}+`
@@ -60,6 +62,7 @@ function findIntegerChainHomeMade() {
     //impair
     else {
       if (Number.isInteger(middle)) {
+        console.log("found impair", divisible)
         let affichage = ""
         for (let i = 0; i < divisible; i++) {
           affichage += `${middle - Math.floor(divisible / 2) + i}+`
