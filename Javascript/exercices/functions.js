@@ -1,17 +1,17 @@
 /**
- * Append a child of type childType to the element Element with specified text, id and classes
- * @param {Element} element 
+ * Append a child of type childType to the parent Element with options
+ * 'id' @type {String} to set a specific id to the element
+ * 'text' @type {String} to add an innerHTML
+ * 'style' @type {String} to add inline style to the element
+ * 'className' @type {Array} to add classes
+ * 'alert' @type {String} to transform the element into an alert with 'alert' as the danger level
+ * @param {Element} parent 
  * @param {String} childType 
- * @param {String} text 
- * @param {String} id 
- * @param {[String]} className 
+ * @param {Object} options 
  * @returns {Element}
  */
-function appendChildToElement(element, childType, options = {}) {
+function appendChildToElement(parent, childType, options = {}) {
     let child = document.createElement(childType);
-    if ("className" in options && options.className.length > 0) {
-        child.classList.add(...options.className)
-    }
     if ("id" in options && options.id != null) {
         child.setAttribute("id", options.id);
     }
@@ -21,28 +21,26 @@ function appendChildToElement(element, childType, options = {}) {
     if ("style" in options && options.style != null) {
         child.style.cssText = options.style
     }
-    element.appendChild(child);
+    if ("className" in options && options.className.length > 0) {
+        child.classList.add(...options.className)
+    }
+    if ("alert" in options && options.alert != null) {
+        let alertClass = []
+        alertClass.push("alert")
+        switch (options.alert) {
+            case "danger":
+                alertClass.push("alert-danger")
+                break;
+            default:
+                alertClass.push("alert-info")
+                break;
+        }
+        child.classList.add(...alertClass)
+        parent.insertBefore(child, parent.firstChild);
+        return child
+    }
+    parent.appendChild(child);
     return child
 }
 
-/**
- * Create an alert of level type as first child of the parent
- * @param {Element} parent 
- * @param {String} text 
- * @param {String} type 
- * @returns {Element}
- */
-function createAlertDiv(parent, text, type = "danger") {
-    let alertDiv = document.createElement("div");
-    let className = "alert "
-    if (type == "danger") {
-        className += "alert-danger "
-    }
-    alertDiv.className = className
-    alertDiv.setAttribute("role", "alert");
-    alertDiv.innerHTML = text;
-    parent.insertBefore(alertDiv, parent.firstChild);
-    return alertDiv
-}
-
-export { appendChildToElement, createAlertDiv }
+export { appendChildToElement }
