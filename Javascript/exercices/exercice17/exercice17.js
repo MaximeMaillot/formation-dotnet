@@ -58,7 +58,7 @@ function getToPay() {
   }
 }
 
-appendChildToElement(container, "div", `Le montant de l'impôt sur le revenu pour un foyer composé de <b>${nbAdult} adulte(s)</b> et de <b>${nbChildren} enfant(s)</b>, avec un revenu fiscal de <b>${amountNet}</b> s'élève à ${Math.round(getToPay())}€`)
+appendChildToElement(container, "div", {text:`Le montant de l'impôt sur le revenu pour un foyer composé de <b>${nbAdult} adulte(s)</b> et de <b>${nbChildren} enfant(s)</b>, avec un revenu fiscal de <b>${amountNet}</b> s'élève à ${Math.round(getToPay())}€`})
 
 
 

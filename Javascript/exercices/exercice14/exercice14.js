@@ -21,4 +21,4 @@ if (longueur[0] == longueur[1] && longueur[0] == longueur[2]) {
   text += "n'est isocèle ni en A, ni en B, ni en C"
 }
 
-appendChildToElement(container, "div", text)
+appendChildToElement(container, "div", {text: text})

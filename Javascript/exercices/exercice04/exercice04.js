@@ -8,10 +8,10 @@ let container = document.querySelector(".container");
 
 let palindrome = prompt("Saisissez un mot");
 
-appendChildToElement(container, "div", `Vous avez saisi : <b>${palindrome}</b>`);
-appendChildToElement(container, "div", `Le mot inversé est : <b>${[...palindrome].reverse().join("")}</b>`);
+appendChildToElement(container, "div", {text:`Vous avez saisi : <b>${palindrome}</b>`});
+appendChildToElement(container, "div", {text:`Le mot inversé est : <b>${[...palindrome].reverse().join("")}</b>`});
 if (isPalindromeCheckByHalf(palindrome)) {
-  appendChildToElement(container, "div", `Le mot <b>${palindrome}</b> est un palindrome`);
+  appendChildToElement(container, "div", {text:`Le mot <b>${palindrome}</b> est un palindrome`});
 } else {
-  appendChildToElement(container, "div", `Le mot <b>${palindrome}</b> n'est pas un palindrome`);
+  appendChildToElement(container, "div", {text:`Le mot <b>${palindrome}</b> n'est pas un palindrome`});
 }

@@ -57,6 +57,6 @@ switch (true) {
 montantImpot *= nbParts;
 
 
-appendChildToElement(container, "div", `Le montant de l'impôt sur le revenu pour un foyer composé de <b>${nbAdulte} adulte(s)</b> et
+appendChildToElement(container, "div", {text:`Le montant de l'impôt sur le revenu pour un foyer composé de <b>${nbAdulte} adulte(s)</b> et
 de <b>${nbEnfants} enfant(s)</b>, avec un revenu fiscal de <b>${revenus}€</b> 
-s'élève à <b>${Math.round(montantImpot)}€</b>`)
+s'élève à <b>${Math.round(montantImpot)}€</b>`})

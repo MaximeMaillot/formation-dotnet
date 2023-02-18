@@ -53,25 +53,11 @@ function getTaille(length, weight) {
       return -1
     }
     tailles.forEach((taille, index) => {
-      /*
-      console.log("beforeIfTaille", index, weight, length, taille)
-      console.log(`${weight} >= ${taille[0].minPoids}`, weight >= taille[0].minPoids)
-      console.log(`${weight} <= ${taille[taille.length - 1].maxPoids}`, weight <= taille[taille.length - 1].maxPoids)
-      console.log(`${length} <= ${taille[0].minTaille}`, length >= taille[0].minTaille)
-      console.log(`${length} <= ${taille[taille.length - 1].maxTaille}`, length <= taille[taille.length - 1].maxTaille)
-      */
       if (weight >= taille[0].minPoids &&
         weight <= taille[taille.length - 1].maxPoids &&
         length >= taille[0].minTaille &&
         length <= taille[taille.length - 1].maxTaille) {
         taille.forEach(tail => {
-          /*
-          console.log("beforeIfTail")
-          console.log(`${weight} >= ${tail.minPoids}`, weight >= tail.minPoids)
-          console.log(`${weight} <= ${tail.maxPoids}`, weight <= tail.maxPoids)
-          console.log(`${length} <= ${tail.minTaille}`, length >= tail.minTaille)
-          console.log(`${length} <= ${tail.maxTaille}`, length <= tail.maxTaille)
-          */
           if (weight >= tail.minPoids && weight <= tail.maxPoids && length >= tail.minTaille && length <= tail.maxTaille) {
             throw (index + 1)
           }
@@ -90,4 +76,10 @@ length = parseInt(length)
 let weight = prompt("Saisissez votre poids en kg")
 weight = parseInt(weight)
 
-appendChildToElement(container, "div", `Pour <b>${length}cm</b> et <b>${weight}kg</b> : Prenez la taille ${getTaille(length, weight)}`)
+let tailleResult = getTaille(length, weight)
+if (tailleResult < 0) {
+  appendChildToElement(container, "div", {text:`Pour <b>${length}cm</b> et <b>${weight}kg</b> : Nous n'avons pas de vêtements à votre taille`})
+
+} else {
+  appendChildToElement(container, "div", {text:`Pour <b>${length}cm</b> et <b>${weight}kg</b> : Prenez la taille ${tailleResult}`})
+}

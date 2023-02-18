@@ -20,10 +20,10 @@ console.table(arrayText)
 
 for (let i = 0; i < arrayText.length; i++) {
   if (i == arrayText.length - 1) {
-    appendChildToElement(container, "div", arrayText[i] + choix, null, [], "margin-top: 2vh;")
+    appendChildToElement(container, "div", {text: (arrayText[i] + choix), style:"margin-top: 2vh;"})
   } else {
-    appendChildToElement(container, "div", arrayText[i])
+    appendChildToElement(container, "div", {text:arrayText[i]})
   }
 }
 
-appendChildToElement(container, "div", `Votre <b>${boissons[parseInt(choix) - 1]}</b> est servie...`, null, [], "margin-top: 2vh;")
+appendChildToElement(container, "div", {text:`Votre <b>${boissons[parseInt(choix) - 1]}</b> est servie...`, style:"margin-top: 2vh;"})

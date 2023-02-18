@@ -15,7 +15,7 @@ let interest = Math.round(calculateInterest(capital, taux, duree))
 
 let container = document.querySelector(".container");
 
-appendChildToElement(container, "div", `Avec un capital initial de <b>${capital}€</b>, placé à <b>${taux}%</b> pendant </b>${duree} année(s)</b>`)
+appendChildToElement(container, "div", {text:`Avec un capital initial de <b>${capital}€</b>, placé à <b>${taux}%</b> pendant </b>${duree} année(s)</b>`})
 let list = appendChildToElement(container, "ul")
-appendChildToElement(list, "li", `Le montant total des intérêts s'élèvera à <b>${interest}€</b>`)
-appendChildToElement(list, "li", `Le capital final à l'issue sera de <b>${capital + interest}€</b>`)
+appendChildToElement(list, "li", {text:`Le montant total des intérêts s'élèvera à <b>${interest}€</b>`})
+appendChildToElement(list, "li", {text:`Le capital final à l'issue sera de <b>${capital + interest}€</b>`})

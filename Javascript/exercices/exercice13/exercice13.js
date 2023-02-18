@@ -17,15 +17,15 @@ let isCategorized = false;
 categories.forEach(categorie => {
   if (age >= categorie.min && age <= categorie.max) {
     isCategorized = true
-    appendChildToElement(container, "div", `Votre enfant est un ${categorie.name}`)
+    appendChildToElement(container, "div", {text:`Votre enfant est un ${categorie.name}`})
   }
 })
 if (!isCategorized) {
   if (age >= 0 && age < categories[0].min) {
-    appendChildToElement(container, "div", "Votre enfant est trop jeune pour pratiquer")
+    appendChildToElement(container, "div", {text:"Votre enfant est trop jeune pour pratiquer"})
   } else if (age > categories[categories.length - 1].max) {
-    appendChildToElement(container, "div", "Votre enfant est un adulte")
+    appendChildToElement(container, "div", {text:"Votre enfant est un adulte"})
   } else {
-    appendChildToElement(container, "div", "Votre enfant est un alien")
+    appendChildToElement(container, "div", {text:"Votre enfant est un alien"})
   }
 }

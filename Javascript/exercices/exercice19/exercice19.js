@@ -33,4 +33,4 @@ switch (true) {
     break;
 }
 
-appendChildToElement(container, "div", resultat)
+appendChildToElement(container, "div", {text:resultat})

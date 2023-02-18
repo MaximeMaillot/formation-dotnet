@@ -11,10 +11,10 @@ let isVoyelle = false;
 for (let i = 0; i < voyelles.length && !isVoyelle; i++) {
   if (voyelles[i] == lettre.toLowerCase()) {
     isVoyelle = true
-    appendChildToElement(container, "div", `La lettre ${lettre} est une voyelle`)
+    appendChildToElement(container, "div", {text: `La lettre ${lettre} est une voyelle`})
   }
 }
 
 if (!isVoyelle) {
-  appendChildToElement(container, "div", `La lettre ${lettre} est une consonne`)
+  appendChildToElement(container, "div", {text:`La lettre ${lettre} est une consonne`})
 }

@@ -26,7 +26,7 @@ let container = document.querySelector(".container");
 
 let str = prompt("Saisissez une phrase");
 
-appendChildToElement(container, "div", `Vous avez saisi : <b>${str}</b>`);
-appendChildToElement(container, "div", `La chaîne en minuscule : <b>${str.toLowerCase()}</b>`);
-appendChildToElement(container, "div", `Mise en tableau : ${str.split("")}`);
-appendChildToElement(container, "div", `La chaîne après traitement : ${capitalizeStr(str)}`);
+appendChildToElement(container, "div", {text:`Vous avez saisi : <b>${str}</b>`});
+appendChildToElement(container, "div", {text:`La chaîne en minuscule : <b>${str.toLowerCase()}</b>`});
+appendChildToElement(container, "div", {text:`Mise en tableau : ${str.split("")}`});
+appendChildToElement(container, "div", {text:`La chaîne après traitement : ${capitalizeStr(str)}`});

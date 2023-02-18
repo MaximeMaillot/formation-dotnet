@@ -23,4 +23,4 @@ if (anciennete >= 1 && anciennete <= 10) {
   indemnite = 0
 }
 
-appendChildToElement(container, "div", `Le montant de l'indemnité pour un salarié de ${age}ans et avec ${anciennete} années d'ancienneté s'élève à ${indemnite}€`)
+appendChildToElement(container, "div", {text:`Le montant de l'indemnité pour un salarié de ${age}ans et avec ${anciennete} années d'ancienneté s'élève à ${indemnite}€`})

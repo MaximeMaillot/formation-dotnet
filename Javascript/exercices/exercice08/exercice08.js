@@ -8,8 +8,8 @@ taux = parseFloat(taux)
 
 let container = document.querySelector(".container");
 
-appendChildToElement(container, "div", `Le prix H.T de l'objet étant de <b>${prixHT}€</b> et le taux de T.V.A applicable de <b>${taux}%</b>`)
+appendChildToElement(container, "div", {text:`Le prix H.T de l'objet étant de <b>${prixHT}€</b> et le taux de T.V.A applicable de <b>${taux}%</b>`})
 let liste = appendChildToElement(container, "ul")
-appendChildToElement(liste, "li", `Le montant de la T.V.A s'élèvera à <b>${prixHT * (taux / 100)}€</b>`)
-appendChildToElement(liste, "li", `Le prix TTC de l'objet sera <b>${prixHT + (prixHT * (taux / 100))}€</b>`)
+appendChildToElement(liste, "li", {text:`Le montant de la T.V.A s'élèvera à <b>${prixHT * (taux / 100)}€</b>`})
+appendChildToElement(liste, "li", {text:`Le prix TTC de l'objet sera <b>${prixHT + (prixHT * (taux / 100))}€</b>`})
 
