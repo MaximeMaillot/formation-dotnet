@@ -33,4 +33,4 @@ appendChildToElement(container, "div", {text: `Sur l'ensemble des ${notes.length
 let liste2 = appendChildToElement(container, "ul")
 appendChildToElement(liste2, "li", {text: `La meilleur note est de ${max}/20`, style:`color: green`})
 appendChildToElement(liste2, "li", {text: `La moins bonne note est de ${min}/20`, style:`color: red`})
-appendChildToElement(liste2, "li", {text: `La moyenne des note est de ${sum}/20`, style:`color: grey`})
+appendChildToElement(liste2, "li", {text: `La moyenne des note est de ${Math.round(sum*10)/10}/20`, style:`color: grey`})
