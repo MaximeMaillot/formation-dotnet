@@ -39,6 +39,15 @@ function appendChildToElement(parent, childType, options = {}) {
         parent.insertBefore(child, parent.firstChild);
         return child
     }
+    if ("function" in options && options.function != null) {
+        switch (options.function.event) {
+            case "onclick":
+                child.onclick = options.function.fn
+                break;
+            default:
+                break;
+        }
+    }
     parent.appendChild(child);
     return child
 }
