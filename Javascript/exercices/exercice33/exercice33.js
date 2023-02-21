@@ -2,7 +2,7 @@ import { appendChildToElement } from "../functions.js"
 
 let notes = []
 
-const saisirNote = function () {
+function saisirNote() {
   let note = 0;
   let cpt = notes.length + 1;
   do {
@@ -12,10 +12,10 @@ const saisirNote = function () {
       appendChildToElement(liste, "li", { text: `En Note ${cpt++}, vous avez saisi ${note}/20` })
     }
   } while (note != 777)
-  result.style.visibility = 'hidden'
+  result.innerHTML = ""
 }
 
-const getBestNote = function () {
+function getBestNote() {
   let max = notes[0]
   for (let i = 1; i < notes.length; i++) {
     if (notes[i] > max) {
@@ -24,10 +24,10 @@ const getBestNote = function () {
   }
   result.innerHTML = `La meilleur note est de ${max}/20`
   result.style.color = "green"
-  result.style.visibility = 'visible'
 }
 
-const getWorstNote = function () {
+function getWorstNote() {
+
   let min = notes[0]
   for (let i = 1; i < notes.length; i++) {
     if (notes[i] < min) {
@@ -36,7 +36,6 @@ const getWorstNote = function () {
   }
   result.innerHTML = `La moins bonne note est ${min}/20`
   result.style.color = "red"
-  result.style.visibility = 'visible'
 }
 
 const getMoy = function () {
@@ -46,7 +45,40 @@ const getMoy = function () {
   }
   result.innerHTML = `La moyenne est de ${Math.round((sum / notes.length) * 10) / 10}/20`
   result.style.color = "grey"
-  result.style.visibility = 'visible'
+}
+
+function removeAllListChild() {
+  while (liste.lastElementChild) {
+    liste.removeChild(liste.lastElementChild);
+  }
+  result.innerHTML = ""
+  notes = []
+}
+
+const handleButtonClick = function (action) {
+  if (action == "saisie") {
+    saisirNote()
+  } else if (notes.length > 0) {
+    switch (action) {
+      case "max":
+        getBestNote()
+        break;
+      case "min":
+        getWorstNote()
+        break;
+      case "moy":
+        getMoy()
+        break;
+      case "clear":
+        handleButtonClick()
+        break;
+      default:
+        break;
+    }
+  } else {
+    result.color = "black"
+    result.innerHTML = "Pas de notes entrés par l'utilisateur"
+  }
 }
 
 let container = document.querySelector(".container");
@@ -60,20 +92,25 @@ let result = appendChildToElement(container, "div")
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-primary"],
   text: `Saisir les notes`,
-  function: { fn: saisirNote, event: "onclick" }
+  function: { fn: handleButtonClick, parameters: ["saisie"], event: "onclick" }
 })
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-success"],
   text: `Voir la meilleur note`,
-  function: { fn: getBestNote, event: "onclick" }
+  function: { fn: handleButtonClick, parameters: ["max"], event: "onclick" }
 })
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-danger"],
   text: `Voir la moins bonne notes`,
-  function: { fn: getWorstNote, event: "onclick" }
+  function: { fn: handleButtonClick, parameters: ["min"], event: "onclick" }
 })
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-secondary"],
   text: `Voir la moyenne des notes`,
-  function: { fn: getMoy, event: "onclick" }
+  function: { fn: handleButtonClick, parameters: ["moy"], event: "onclick" }
+})
+appendChildToElement(divButton, "button", {
+  className: ["btn", "btn-info"],
+  text: `Clear`,
+  function: { fn: removeAllListChild, parameters: ["clear"], event: "onclick" }
 })

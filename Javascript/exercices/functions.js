@@ -42,7 +42,7 @@ function appendChildToElement(parent, childType, options = {}) {
     if ("function" in options && options.function != null) {
         switch (options.function.event) {
             case "onclick":
-                child.onclick = options.function.fn
+                child.onclick = function () { options.function.fn(...options.function.parameters) }
                 break;
             default:
                 break;
