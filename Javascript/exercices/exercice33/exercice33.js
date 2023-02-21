@@ -1,20 +1,37 @@
 import { appendChildToElement } from "../functions.js"
 
-let notes = []
-
+/**
+ * ask the user to enter the notes
+ * @param {Array} notes 
+ * @param {Element} result 
+ * @param {Element} liste 
+ */
 function saisirNote(notes, result, liste) {
   let note = 0;
   let cpt = notes.length + 1;
+  let errorMsg = ""
   do {
-    note = parseInt(prompt("Rentrez une note (777 pour s'arrêter))"))
-    if (note != 777) {
+    note = parseInt(prompt(`${errorMsg ? errorMsg + "\n" : ""}Rentrez une note (777 pour s'arrêter))`))
+    errorMsg = ""
+    if (isNaN(note)) {
+      errorMsg = "Vous n'avez pas rentré un nombre"
+    } else if (note < 0 || note > 20) {
+      errorMsg = "Le nombre doit être compris entre 0 et 20"
+    } else if (note != 777) {
       notes.push(note)
       appendChildToElement(liste, "li", { text: `En Note ${cpt++}, vous avez saisi ${note}/20` })
+    } else {
+      errorMsg = "Saisie non supporté"
     }
   } while (note != 777)
   result.innerHTML = ""
 }
 
+/**
+ * get the best note in notes
+ * @param {Array} notes 
+ * @param {Element} result 
+ */
 function getBestNote(notes, result) {
   let max = notes[0]
   for (let i = 1; i < notes.length; i++) {
@@ -26,6 +43,11 @@ function getBestNote(notes, result) {
   result.style.color = "green"
 }
 
+/**
+ * get the worst note in notes
+ * @param {Array} notes 
+ * @param {Element} result 
+ */
 function getWorstNote(notes, result) {
 
   let min = notes[0]
@@ -38,7 +60,12 @@ function getWorstNote(notes, result) {
   result.style.color = "red"
 }
 
-const getMoy = function (notes, result) {
+/**
+ * get the moyenne of the notes
+ * @param {Array} notes 
+ * @param {Element} result 
+ */
+function getMoy(notes, result) {
   let sum = 0;
   for (let i = 0; i < notes.length; i++) {
     sum += notes[i]
@@ -47,14 +74,24 @@ const getMoy = function (notes, result) {
   result.style.color = "grey"
 }
 
+/**
+ * Remove all child of the list
+ * @param {Array} notes 
+ * @param {Element} result 
+ * @param {Element} liste 
+ */
 function removeAllListChild(notes, result, liste) {
   while (liste.lastElementChild) {
     liste.removeChild(liste.lastElementChild);
   }
   result.innerHTML = ""
-  notes = []
+  notes.length = 0
 }
 
+/**
+ * Handle the action of every button in the divButton
+ * @param {string} action 
+ */
 const handleButtonClick = function (action) {
   if (action == "saisie") {
     saisirNote(notes, result, liste)
@@ -81,6 +118,7 @@ const handleButtonClick = function (action) {
   }
 }
 
+let notes = []
 let container = document.querySelector(".container");
 
 appendChildToElement(container, "h2", { text: `Gestion des notes avec menu` })
@@ -92,25 +130,25 @@ let result = appendChildToElement(container, "div")
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-primary"],
   text: `Saisir les notes`,
-  function: { fn: handleButtonClick, parameters: ["saisie"], event: "onclick" }
+  eventHandler: { fn: handleButtonClick, parameters: ["saisie"], event: "onclick" }
 })
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-success"],
   text: `Voir la meilleur note`,
-  function: { fn: handleButtonClick, parameters: ["max"], event: "onclick" }
+  eventHandler: { fn: handleButtonClick, parameters: ["max"], event: "onclick" }
 })
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-danger"],
   text: `Voir la moins bonne notes`,
-  function: { fn: handleButtonClick, parameters: ["min"], event: "onclick" }
+  eventHandler: { fn: handleButtonClick, parameters: ["min"], event: "onclick" }
 })
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-secondary"],
   text: `Voir la moyenne des notes`,
-  function: { fn: handleButtonClick, parameters: ["moy"], event: "onclick" }
+  eventHandler: { fn: handleButtonClick, parameters: ["moy"], event: "onclick" }
 })
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-info"],
   text: `Clear`,
-  function: { fn: handleButtonClick, parameters: ["clear"], event: "onclick" }
+  eventHandler: { fn: handleButtonClick, parameters: ["clear"], event: "onclick" }
 })
