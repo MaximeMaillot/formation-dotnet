@@ -2,7 +2,7 @@ import { appendChildToElement } from "../functions.js"
 
 let notes = []
 
-function saisirNote() {
+function saisirNote(notes, result, liste) {
   let note = 0;
   let cpt = notes.length + 1;
   do {
@@ -15,7 +15,7 @@ function saisirNote() {
   result.innerHTML = ""
 }
 
-function getBestNote() {
+function getBestNote(notes, result) {
   let max = notes[0]
   for (let i = 1; i < notes.length; i++) {
     if (notes[i] > max) {
@@ -26,7 +26,7 @@ function getBestNote() {
   result.style.color = "green"
 }
 
-function getWorstNote() {
+function getWorstNote(notes, result) {
 
   let min = notes[0]
   for (let i = 1; i < notes.length; i++) {
@@ -38,7 +38,7 @@ function getWorstNote() {
   result.style.color = "red"
 }
 
-const getMoy = function () {
+const getMoy = function (notes, result) {
   let sum = 0;
   for (let i = 0; i < notes.length; i++) {
     sum += notes[i]
@@ -47,7 +47,7 @@ const getMoy = function () {
   result.style.color = "grey"
 }
 
-function removeAllListChild() {
+function removeAllListChild(notes, result, liste) {
   while (liste.lastElementChild) {
     liste.removeChild(liste.lastElementChild);
   }
@@ -57,20 +57,20 @@ function removeAllListChild() {
 
 const handleButtonClick = function (action) {
   if (action == "saisie") {
-    saisirNote()
+    saisirNote(notes, result, liste)
   } else if (notes.length > 0) {
     switch (action) {
       case "max":
-        getBestNote()
+        getBestNote(notes, result)
         break;
       case "min":
-        getWorstNote()
+        getWorstNote(notes, result)
         break;
       case "moy":
-        getMoy()
+        getMoy(notes, result)
         break;
       case "clear":
-        handleButtonClick()
+        removeAllListChild(notes, result, liste)
         break;
       default:
         break;
@@ -112,5 +112,5 @@ appendChildToElement(divButton, "button", {
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-info"],
   text: `Clear`,
-  function: { fn: removeAllListChild, parameters: ["clear"], event: "onclick" }
+  function: { fn: handleButtonClick, parameters: ["clear"], event: "onclick" }
 })
