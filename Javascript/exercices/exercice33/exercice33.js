@@ -130,25 +130,25 @@ let result = appendChildToElement(container, "div")
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-primary"],
   text: `Saisir les notes`,
-  eventHandler: { fn: handleButtonClick, parameters: ["saisie"], event: "onclick" }
+  eventHandler: { fn: () => { handleButtonClick("saisie") }, event: "onclick" }
 })
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-success"],
   text: `Voir la meilleur note`,
-  eventHandler: { fn: handleButtonClick, parameters: ["max"], event: "onclick" }
+  eventHandler: { fn: () => { handleButtonClick("max") }, event: "onclick" }
 })
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-danger"],
   text: `Voir la moins bonne notes`,
-  eventHandler: { fn: handleButtonClick, parameters: ["min"], event: "onclick" }
+  eventHandler: { fn: () => { handleButtonClick("min") }, event: "onclick" }
 })
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-secondary"],
   text: `Voir la moyenne des notes`,
-  eventHandler: { fn: handleButtonClick, parameters: ["moy"], event: "onclick" }
+  eventHandler: { fn: () => { handleButtonClick("moy") }, event: "onclick" }
 })
 appendChildToElement(divButton, "button", {
   className: ["btn", "btn-info"],
   text: `Clear`,
-  eventHandler: { fn: handleButtonClick, parameters: ["clear"], event: "onclick" }
+  eventHandler: { fn: () => { handleButtonClick("clear") }, event: "onclick" }
 })
