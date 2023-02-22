@@ -60,25 +60,35 @@ function appendChildToElement(parent, childType, options = {}) {
         return child
     }
     if ("eventHandler" in options && options.eventHandler != null) {
-        switch (options.eventHandler.event) {
-            case "onclick":
-                child.addEventListener("click", function (e) {
-                    options.eventHandler.fn()
-                })
-                break;
-            case "keyup":
-                child.addEventListener("keyup", function (e) {
-                    if (e.key === "Enter") {
-                        options.eventHandler.fn()
-                    }
-                });
-                break;
-            default:
-                break;
+        if (typeof options.eventHandler.event == "Array") {
+            options.event.forEach((e) => {
+                addEvent(child, e.event, options.evenHandler.fn)
+            })
+        } else {
+            addEvent(child, options.eventHandler.event, options.eventHandler.fn)
         }
     }
     parent.appendChild(child);
     return child
+}
+
+function addEvent(child, event, fn) {
+    switch (event) {
+        case "onclick":
+            child.addEventListener("click", function (e) {
+                fn()
+            })
+            break;
+        case "keyup":
+            child.addEventListener("keyup", function (e) {
+                if (e.key === "Enter") {
+                    fn()
+                }
+            });
+            break;
+        default:
+            break;
+    }
 }
 
 function removeAllChild(parent) {
