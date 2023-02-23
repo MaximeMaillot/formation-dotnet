@@ -37,35 +37,32 @@ function clear() {
 }
 
 function clickColV3(x, y) {
-    if (turn > 8 || end) {
-        console.log("déjà fini")
+    if (colTab[x][y].innerHTML != "") {
+        console.log("Already played")
     } else {
-        if (colTab[x][y].innerHTML != "") {
-            console.log("Already played")
+        let message = document.querySelector("#message")
+        if (turn % 2 == 0) {
+            colTab[x][y].innerHTML = "X"
+            const color = "bg-red"
+            if (end = checkForNeighbor(x, y, color)) {
+                message.innerHTML = "Bravo ! Le joueur 1 a gagné !"
+                message.classList.add(color)
+            }
         } else {
-            let message = document.querySelector("#message")
-            if (turn % 2 == 0) {
-                colTab[x][y].innerHTML = "X"
-                const color = "bg-red"
-                if (end = checkForNeighbor(x, y, color)) {
-                    message.innerHTML = "Bravo ! Le joueur 1 a gagné !"
-                    message.classList.add(color)
-                }
-            } else {
-                colTab[x][y].innerHTML = "O"
-                const color = "bg-green"
-                if (end = checkForNeighbor(x, y, color)) {
-                    message.innerHTML = "Bravo ! Le joueur 2 a gagné !"
-                    message.classList.add(color)
-                }
+            colTab[x][y].innerHTML = "O"
+            const color = "bg-green"
+            if (end = checkForNeighbor(x, y, color)) {
+                message.innerHTML = "Bravo ! Le joueur 2 a gagné !"
+                message.classList.add(color)
             }
-            if (turn++ > 7) {
-                message.innerHTML = "Match nul"
-                message.classList.add("bg-grey")
-            }
-            if (!end) {
-                message.innerHTML = `C'est au joueur ${turn % 2 == 0 ? 1 : 2} de jouer.`
-            }
+        }
+        if (turn++ > 7) {
+            message.innerHTML = "Match nul"
+            message.classList.add("bg-grey")
+            end = true
+        }
+        if (!end) {
+            message.innerHTML = `C'est au joueur ${turn % 2 == 0 ? 1 : 2} de jouer.`
         }
     }
 }
