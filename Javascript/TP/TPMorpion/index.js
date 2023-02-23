@@ -62,7 +62,8 @@ function clickColV3(x, y) {
             if (turn++ > 7) {
                 message.innerHTML = "Match nul"
                 message.classList.add("bg-grey")
-            } else {
+            }
+            if (!end) {
                 message.innerHTML = `C'est au joueur ${turn % 2 == 0 ? 1 : 2} de jouer.`
             }
         }
