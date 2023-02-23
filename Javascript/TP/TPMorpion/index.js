@@ -24,7 +24,6 @@ function init() {
 }
 
 function clear() {
-    console.log("clear")
     colTab.forEach((cols) => {
         cols.forEach((col) => {
             col.classList.remove(...classList)
