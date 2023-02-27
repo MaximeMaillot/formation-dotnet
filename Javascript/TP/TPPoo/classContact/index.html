@@ -37,10 +37,12 @@
             </table>
         </div>
         <div class="border">
+            <div class="alert alert-danger text-center" style="display: none;" id="form-alert"></div>
             <h2 class="text-center">Ajouter Contact</h2>
             <form>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input radio" type="radio" name="titre" id="inlineRadio1" value="Mr">
+                    <input class="form-check-input radio" type="radio" name="titre" id="inlineRadio1" value="Mr"
+                        checked>
                     <label class="form-check-label" for="inlineRadio1">Mr</label>
                 </div>
                 <div class="form-check form-check-inline">
@@ -49,17 +51,20 @@
                 </div>
             </form>
             <div class="row from-group">
-                <div class="col"><input class="form-control" type="text" placeholder="nom" id="nom"></div>
-                <div class="col"><input class="form-control" type="text" placeholder="prenom" id="prenom"></div>
+                <div class="col"><input class="form-control" type="text" placeholder="nom" id="nom" minlength="2"></div>
+                <div class="col"><input class="form-control" type="text" placeholder="prenom" id="prenom" minlength="2">
+                </div>
             </div>
             <div class="row form-group">
                 <div class="col"><input class="form-control" type="date" name="date" id="date"></div>
-                <div class="col"><input class="form-control" type="tel" name="tel" id="tel" placeholder="0601020304">
+                <div class="col"><input class="form-control" type="tel" name="tel" id="tel" placeholder="0601020304"
+                        minlength="10" maxlength="12">
                 </div>
                 <div class="col"><input class="form-control" type="email" name="mail" id="mail"
-                        placeholder="exemple@exemple.com"></div>
+                        placeholder="exemple@exemple.com" minlength="2"></div>
             </div>
             <button class="btn btn-success" id="add">Ajouter</button>
+            <button class="btn btn-secondary" id="show">Show</button>
         </div>
     </div>
     <script type="module" src="./src/index.js"></script>
