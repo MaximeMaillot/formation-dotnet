@@ -1,89 +1,40 @@
 import express from "express"
 import ip from "ip"
 import { dirname } from "path";
+import cors from "cors";
 import * as url from 'url';
 import { success } from "./method.js";
-// Créer une instance de Express
+import fs from "fs"
+
 const app = express()
 const port = 7777
 const ipAdress = ip.address()
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-let data = [{
-    "category": "Reférencement",
-    "name": "SEO Premium",
-    "difficulte": 3,
-    "price": 249,
-    "id": 1,
-    "created": "2019-06-16T16:54:46.308Z"
-},
-{
-    "category": "Langage de programmation",
-    "name": "C#",
-    "difficulte": 4,
-    "price": 299,
-    "id": 2,
-    "created": "2019-06-16T16:54:56.308Z"
-},
-{
-    "category": "Langage de programmation",
-    "name": "JavaScript",
-    "difficulte": 3,
-    "price": 199,
-    "id": 3,
-    "created": "2019-06-16T16:55:06.308Z"
-},
-{
-    "category": "Langage de programmation",
-    "name": "HTML/CSS",
-    "difficulte": 2,
-    "price": 149,
-    "id": 4,
-    "created": "2019-06-16T16:55:16.308Z"
-},
-{
-    "category": "FrameWork",
-    "name": "React",
-    "difficulte": 3,
-    "price": 299,
-    "id": 5,
-    "created": "2019-06-16T16:55:26.308Z"
-},
-{
-    "category": "FrameWork",
-    "name": "Vue.Js",
-    "difficulte": 2,
-    "price": 299,
-    "id": 6,
-    "created": "2019-06-16T16:55:36.308Z"
-},
-{
-    "category": "FrameWork",
-    "name": "Angular",
-    "difficulte": 4,
-    "price": 299,
-    "id": 7,
-    "created": "2019-06-16T16:55:46.308Z"
-},
-{
-    "category": "Outils collaboratifs",
-    "name": "Git",
-    "difficulte": 3,
-    "price": 199,
-    "id": 8,
-    "created": "2019-06-16T16:55:56.308Z"
-},
-{
-    "category": "FrameWork",
-    "name": "Sass",
-    "difficulte": 3,
-    "price": 149,
-    "id": 9,
-    "created": "2019-06-16T16:56:06.308Z"
-}]
+// 1) Récuperer les données du JSON
+let dataJSON = fs.readFileSync("./data/cours.json", (err, data) => {
+    if (err == null) {
+        return data;
+    }
+    else
+        console.log(err);
+});
+
+// 2) Reconstruire les objets JS
+const data = JSON.parse(dataJSON);
 
 let lastId = data.length
+
+function addCours(newCours) {
+    data.push(newCours);
+    //console.table(myList);
+
+    // 4) Update du fichier JSon
+    dataJSON = JSON.stringify(newCours);
+    fs.writeFileSync("./data/cours.json", dataJSON)
+}
+
 
 app.use(express.json())
 
@@ -134,10 +85,15 @@ app.get("/data/price/:minPrice/:maxPrice", (req, res) => {
     res.json(success(message, find))
 })
 
-//GET by date
-app.get("/data/date/:date", (req, res) => {
-    const date = req.params.date;
-    res.json("TODO DATE")
+//POST (GET) by date
+app.post("/data/date", (req, res) => {
+    const minDate = new Date(req.params.minDate);
+    const maxDate = new Date(req.params.maxDate);
+    res.json({ minDate, maxDate })
+    /*
+    const filter = data.filter((d) => {
+        return d.price >= minPrice && d.price <= maxPrice
+    })*/
 })
 
 // POST
