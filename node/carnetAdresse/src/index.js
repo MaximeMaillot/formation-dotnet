@@ -5,7 +5,11 @@ import fs from "fs";
 import path from 'path';
 import { fileURLToPath } from 'url';
 import multer from 'multer';
-
+import jwt from "jsonwebtoken"
+import dotenv from "dotenv"
+dotenv.config()
+import morgan from "morgan"
+import bodyParser from "body-parser";
 import { getJSON } from "../functions.js";
 import Contact from "./Contact.js";
 
@@ -37,8 +41,15 @@ app
             res.send()
         })
     })
-    .use(express.static(path.join(__dirname, 'public')))
-    .use('/static', express.static(path.join(__dirname, 'public')));
+    .use(morgan('dev'))
+    .use(express.static(path.join(__dirname, '../public')))
+    .use('/static', express.static(path.join(__dirname, '../public')));
+
+// create application/json parser
+const jsonParser = bodyParser.json()
+
+// create application/x-www-form-urlencoded parser
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 /**
  * FUNCTIONS
@@ -74,13 +85,81 @@ let storage = multer.diskStorage({
         )
     },
 })
+
+const user = getJSON(__dirname + "/user.json")
+
 // Création de l'objet multer
 const upload = multer({
     storage: storage,
 })
 
+function generateAccessToken(user) {
+    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1800s' });
+}
+
+
+function generateRefreshToken(user) {
+    return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '1y' });
+}
+
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+
+    if (!token) {
+        return res.sendStatus(401);
+    }
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if (err) {
+            return res.sendStatus(401);
+        }
+        req.user = user;
+        next();
+    });
+}
+
+app.post('/login', jsonParser, (req, res) => {
+    // TODO: checker en BDD le user par rapport à l'email
+    if (req.body.email != user.email || req.body.password !== user.password) {
+        res.status(401).send('invalid credentials');
+        return;
+    }
+
+    const accessToken = generateAccessToken(user);
+    const refreshToken = generateRefreshToken(user);
+    res.send({
+        accessToken,
+        refreshToken,
+    });
+
+});
+
+app.post('/refreshToken', (req, res) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];//Convention de nomage
+    if (!token) {
+        return res.sendStatus(401);
+    }
+
+    jwt.verify(token, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
+        if (err) {
+            return res.sendStatus(401);
+        }
+        // TODO : check en bdd que le user a toujours les droits et qu'il existe toujours
+        delete user.iat;
+        delete user.exp;
+        const refreshedToken = generateAccessToken(user);
+        res.send({
+            accessToken: refreshedToken,
+        });
+    });
+});
+
+
+
 // GET All Contact
-app.get("/", (req, res) => {
+app.get("/", authenticateToken, (req, res) => {
     try {
         let contactJSON = getJSON(__dirname + "/contact.json")
         const contacts = JSON.parse(contactJSON)
@@ -91,7 +170,7 @@ app.get("/", (req, res) => {
 })
 
 // GET Contact by ID
-app.get("/:id", (req, res) => {
+app.get("/:id", authenticateToken, (req, res) => {
     try {
         const id = req.params.id
 
@@ -102,14 +181,14 @@ app.get("/:id", (req, res) => {
             return contact.id == id
         })
 
-        return res.json({ error: false, contact: find })
+        return res.json({ error: false, contact: find, avatar: `${ip.address()}:${port}/static/img/${find.avatar}` })
     } catch (e) {
         return res.json({ error: e })
     }
 })
 
 // POST Contact
-app.post('/', upload.single('img'), async (req, res) => {
+app.post('/', authenticateToken, upload.single('img'), async (req, res) => {
     try {
         let contactJSON = getJSON(__dirname + "/contact.json")
         const contacts = JSON.parse(contactJSON)
@@ -128,7 +207,7 @@ app.post('/', upload.single('img'), async (req, res) => {
 })
 
 // PUT Contact 
-app.put("/:id", upload.single('img'), async (req, res) => {
+app.put("/:id", authenticateToken, upload.single('img'), async (req, res) => {
     try {
         const id = req.params.id
 
@@ -175,7 +254,7 @@ app.put("/:id", upload.single('img'), async (req, res) => {
 })
 
 // DELETE Contact
-app.delete("/:id", (req, res) => {
+app.delete("/:id", authenticateToken, (req, res) => {
     try {
         const id = req.params.id
 

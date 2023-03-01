@@ -7,7 +7,7 @@ export default class Contact {
         this.dateNaissance = dateNaissance;
         this.telephone = telephone;
         this.email = email;
-        //path to file
+        //filename
         this.avatar = avatar;
         this.created = new Date().toISOString();
         this.modified = new Date().toISOString();
