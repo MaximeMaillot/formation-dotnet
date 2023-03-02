@@ -354,3 +354,6 @@ test.*
 
 # ignore vscode config
 .vscode
+
+# Variable environnement
+.env

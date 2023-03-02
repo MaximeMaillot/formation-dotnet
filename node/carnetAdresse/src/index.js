@@ -86,7 +86,7 @@ let storage = multer.diskStorage({
     },
 })
 
-const user = getJSON(__dirname + "/user.json")
+const user = getJSON(path.join(__dirname, "/user.json"))
 
 // Création de l'objet multer
 const upload = multer({
@@ -121,6 +121,7 @@ function authenticateToken(req, res, next) {
 
 app.post('/login', jsonParser, (req, res) => {
     // TODO: checker en BDD le user par rapport à l'email
+    console.log(req.body, user)
     if (req.body.email != user.email || req.body.password !== user.password) {
         res.status(401).send('invalid credentials');
         return;

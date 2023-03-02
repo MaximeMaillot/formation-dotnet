@@ -20,6 +20,20 @@ let timeout;
 let contacts = []
 
 function init() {
+    fetch("http://localhost:7777", {
+        headers: {
+            Authentication: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDIsIm5hbWUiOiJKZWFuIGJvbiIsImVtYWlsIjoiamVhbmJvbkBnbWFpbC5jb20iLCJwYXNzd29yZCI6ImN1aWxsZXJlIiwiYWRtaW4iOnRydWUsImlhdCI6MTY3NzY2NTA5MSwiZXhwIjoxNjc3NjY2ODkxfQ.rNvs-PmUwfY8dyjkg1Iv5t17WRRZz7WJgjXK13-AXmU"
+        }
+    })
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            contacts = data.contacts;
+            contacts.forEach((contact) => {
+                addContactViaApi(new Contact("Mr", contact.nom, contact.prenom, contact.dateNaissance, contact.telephone, contact.email))
+            })
+        })
     Ajouter.addEventListener("click", addContact)
     Show.addEventListener("click", updateView)
 }
@@ -57,6 +71,30 @@ function validateData() {
         }
     }
     return true;
+}
+
+function addContactViaApi(contact) {
+    contacts.push(contact)
+    const tr = document.createElement("tr")
+    tr.setAttribute("data-id", contact.id)
+    Contacts.appendChild(tr)
+    for (const key in contact) {
+        const td = document.createElement("td")
+        td.innerText = contact[key]
+        tr.appendChild(td)
+    }
+    const td = document.createElement("td")
+    const deleteDiv = document.createElement("i")
+    deleteDiv.classList.add(["fa-solid"], ["fa-trash"])
+    td.appendChild(deleteDiv)
+    tr.appendChild(td)
+    deleteDiv.addEventListener("click", () => {
+        let index = parseInt(tr.getAttribute("data-id"))
+        contacts = contacts.filter((c) => {
+            return c.id != Number(index)
+        })
+        tr.remove()
+    })
 }
 
 function addContact() {
