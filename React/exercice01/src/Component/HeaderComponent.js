@@ -5,9 +5,9 @@ class HeaderComponent extends Component {
     render() {
         return (
             <div className="red flex">
-                <img src="./M2ILOGO2.png"></img>
+                <img className="image" src="./M2ILOGO2.png" alt="logo"></img>
                 <h1>M2i Formation</h1>
-                <span>votre formation sur mesure</span>
+                <span>votre formation sur mesure...</span>
             </div>
         )
     }

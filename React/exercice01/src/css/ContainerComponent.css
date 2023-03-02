@@ -1,4 +1,11 @@
 .container {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: 15% 70% 15%;
+}
+
+.container-text {
+    padding-left: 2rem;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
 }

@@ -1,11 +1,17 @@
+h1 {
+    margin: 0 5rem;
+}
+
 .red {
-    background-color: red;
-    height: 100%;
-    width: 100%;
+    background-color: salmon;
 }
 
 .flex {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.image {
+    max-height: 100%;
 }

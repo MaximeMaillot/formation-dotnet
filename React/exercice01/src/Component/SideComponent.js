@@ -2,13 +2,9 @@ import React, { Component } from "react"
 import "../css/SideComponent.css"
 
 class SideComponent extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
-            <div className="blue">
+            <div className="blue container-text">
                 {this.props.name}
             </div>
         )
