@@ -6,7 +6,7 @@ import CenterComponent from "./CenterComponent"
 class ContainerComponent extends Component {
     render() {
         return (
-            <div className="container">
+            <div className="container-custom">
                 <SideComponent name="Left" />
                 <CenterComponent name="Center" />
                 <SideComponent name="Right" />

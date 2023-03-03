@@ -7,7 +7,7 @@ class HeaderComponent extends Component {
             <div className="red flex">
                 <img className="image" src="./M2ILOGO2.png" alt="logo"></img>
                 <h1>M2i Formation</h1>
-                <span>votre formation sur mesure...</span>
+                <span className="transform">votre formation sur mesure...</span>
             </div>
         )
     }

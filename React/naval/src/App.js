@@ -1,7 +1,6 @@
 import "./App.css"
-import "bootstrap/dist/css/bootstrap.min.css"
 import React, { Component } from "react"
-import ContainerComponent from "./Component/ContainerComponent";
+import ContainerComponent from "./Component/ContainerComponent.js";
 import FooterComponent from "./Component/FooterComponent";
 import HeaderComponent from "./Component/HeaderComponent";
 
