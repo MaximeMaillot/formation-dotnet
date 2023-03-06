@@ -1,5 +1,5 @@
 import React from 'react';
-import "./CarScale.css"
+import "./CardScale.css"
 
 const CarScale = ({ scaleValue }) => {
     const quantityLabel = {

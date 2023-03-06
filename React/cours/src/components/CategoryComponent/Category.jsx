@@ -4,12 +4,17 @@ import "./Category.css"
 const Category = ({ activeCategory, setActiveCategory, categoryList }) => {
     return (
         <div className='category'>
-            <select name="category" className='form-select' value={activeCategory} onChange={(e) => { setActiveCategory(e.target.value) }}>
+            <select name="category"
+                className='form-select'
+                value={activeCategory}
+                onChange={(e) => { setActiveCategory(e.target.value) }
+                }>
+                <option value="---">---</option>
+                {categoryList.map((category, index) => {
+                    return <option value={category} key={index}>{category}</option>
+                })}
             </select>
-            <option value="---"></option>
-            {categoryList.map((category) => {
-                <option value={category}>{category}</option>
-            })}
+
         </div>
     );
 };

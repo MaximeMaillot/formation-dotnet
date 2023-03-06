@@ -1,8 +1,8 @@
 import React from 'react';
-import CarScale from '../CarScaleComponent/CarScale';
-import "./FormationCard.css"
+import CarScale from '../CardScaleComponent/CardScale';
+import "./FormationCard.css";
 
-const FormationCard = ({ formation }) => {
+const FormationCard = ({ addToCart, formation }) => {
     return (
         <div className='card'>
             <div className='card-title'>
@@ -10,7 +10,7 @@ const FormationCard = ({ formation }) => {
             </div>
             <div>
                 <img className="logo-image" src={formation.logo} alt={`logo ${formation.name}`} onClick={() => {
-                    console.log(formation.name)
+                    console.log(formation.name);
                 }}></img>
             </div>
             <div className='category'>
@@ -23,6 +23,7 @@ const FormationCard = ({ formation }) => {
             <div className='price'>
                 <span>Prix : <b>{formation.price}€</b></span>
             </div>
+            <button onClick={() => { addToCart(formation.name, formation.price); }}>Ajouter au panier</button>
         </div>
     );
 };
