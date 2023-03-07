@@ -3,7 +3,7 @@ import Contact from '../../Components/ContactComponent/Contact';
 import "./List.css";
 
 const List = ({ contacts, updateContacts }) => {
-    return contacts.length > 0 ? (
+    return contacts ? (
         <React.Fragment>
             <table className='table'>
                 <thead>
@@ -22,10 +22,12 @@ const List = ({ contacts, updateContacts }) => {
                     }
                 </tbody>
             </table>
-            <button className='btn btn-secondary' onClick={() => { updateContacts([]) }}>Clear</button>
+            <div className='text-center'>
+                <button className='btn btn-secondary' onClick={() => { updateContacts([]) }}>Clear</button>
+            </div>
         </React.Fragment>
     ) : (
-        <div>Pas de contacts</div>
+        <div className='text-center'><h2>Pas de contacts</h2></div>
     )
 };
 

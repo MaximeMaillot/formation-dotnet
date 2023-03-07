@@ -9,7 +9,7 @@ const Navbar = ({ contacts, updateContacts }) => {
     return (
         <div>
             <BrowserRouter>
-                <div className='navbar d-flex flex-row justify-content-center'>
+                <div className='navbar d-flex flex-row justify-content-center Navbar'>
                     <button className='btn'>
                         <Link to="/" >Home</Link>
                     </button>
