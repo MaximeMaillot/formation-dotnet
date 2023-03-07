@@ -1,6 +1,5 @@
 import React from 'react';
 import "./AddPerson.css";
-import { postCoursApi } from '../../apiService';
 
 const AddPerson = ({ contacts, updateContacts }) => {
     function handleSubmit(e) {
@@ -13,12 +12,7 @@ const AddPerson = ({ contacts, updateContacts }) => {
                 telephone: e.target.telephone.value
             }]
         )
-        postCoursApi({
-            firstname: e.target.nom.value,
-            lastname: e.target.prenom.value,
-            email: e.target.email.value,
-            phone: e.target.telephone.value
-        })
+        e.target.reset()
     }
 
     return (
