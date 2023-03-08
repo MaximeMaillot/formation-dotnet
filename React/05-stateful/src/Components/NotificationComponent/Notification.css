@@ -1,0 +1,6 @@
+.Notification {
+    padding: 2vh auto;
+    border-top: darkred 2px solid;
+    border-bottom: darkred 2px solid;
+    font-size: large;
+}

@@ -1,0 +1,20 @@
+.checked {
+    background-color: lightgreen !important;
+}
+
+.unchecked {
+    background-color: lightgray !important;
+}
+
+.todo-delete {
+    background-color: lightcoral !important;
+}
+
+.todo-delete:hover {
+    background-color: red !important;
+}
+
+.todo-checkbox>input,
+.todo-delete {
+    cursor: pointer;
+}
