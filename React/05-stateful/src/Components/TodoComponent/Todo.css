@@ -18,3 +18,15 @@
 .todo-delete {
     cursor: pointer;
 }
+
+.td-text {
+    width: 65%
+}
+
+.td-fa {
+    width: 5%;
+}
+
+.td-fa>* {
+    font-size: 2rem;
+}

@@ -11,14 +11,14 @@ class TodoList extends Component {
             <table className='table'>
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Text</th>
-                        <th colSpan={2} className='text-center'>Actions</th>
+                        <th className='th-id'>ID</th>
+                        <th className='th-text' colSpan={2}>Text</th>
+                        <th className='th-action text-center' colSpan={2} >Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {this.props.todos.map(todo => {
-                        return <Todo todo={todo} deleteTodo={this.props.deleteTodo} checkTodo={this.props.checkTodo} key={todo.id} />
+                        return <Todo todo={todo} deleteTodo={this.props.deleteTodo} checkTodo={this.props.checkTodo} updateTodo={this.props.updateTodo} key={todo.id} />
                     })}
                 </tbody>
             </table>

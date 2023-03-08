@@ -8,7 +8,7 @@ class FormTodo extends Component {
     }
     render() {
         return (
-            <form className="form-control form-background-color" onSubmit={(e) => { e.preventDefault(); console.log(this.text); this.props.addTodo(this.text) }}>
+            <form className="form-control form-background-color" onSubmit={(e) => { e.preventDefault(); this.props.addTodo(this.text); e.target.reset() }}>
                 <div className='text-center'>
                     <label className="form-label text-label" htmlFor="todo-text">Texte</label>
                     <input type="text" name="todo-text" id="todo-text" onChange={(e) => { this.text = e.target.value }} />

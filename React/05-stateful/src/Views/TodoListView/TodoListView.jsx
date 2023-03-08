@@ -55,12 +55,26 @@ class TodoListView extends Component {
         })
     }
 
-    checkTodo(updTodo) {
+    checkTodo(updTodo, state) {
         const filteredTodos = this.state.todos.filter((todo) => {
             if (updTodo !== todo) {
                 return todo
             } else {
-                todo.checked = !todo.checked
+                todo.checked = state
+                return todo
+            }
+        })
+        this.setState({
+            todos: filteredTodos
+        })
+    }
+
+    updateTodo(updTodo, text) {
+        const filteredTodos = this.state.todos.filter((todo) => {
+            if (updTodo !== todo) {
+                return todo
+            } else {
+                todo.text = text
                 return todo
             }
         })
@@ -74,7 +88,12 @@ class TodoListView extends Component {
             <div>
                 <FormTodo addTodo={this.addTodo.bind(this)} />
                 <Notification todos={this.state.todos} />
-                <TodoList todos={this.state.todos} deleteTodo={this.deleteTodo.bind(this)} checkTodo={this.checkTodo.bind(this)} />
+                <TodoList
+                    todos={this.state.todos}
+                    deleteTodo={this.deleteTodo.bind(this)}
+                    checkTodo={this.checkTodo.bind(this)}
+                    updateTodo={this.updateTodo.bind(this)}
+                />
             </div>
         );
     }
