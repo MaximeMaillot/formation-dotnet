@@ -5,3 +5,13 @@
 button a {
     color: black
 }
+
+.font-icon {
+    color: rgb(87, 87, 87);
+    font-size: x-large;
+    padding: 0 2vw;
+}
+
+.font-icon:hover {
+    color: orange;
+}
