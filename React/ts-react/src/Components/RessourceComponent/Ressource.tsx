@@ -1,11 +1,10 @@
 import React from 'react';
 import "./Ressource.css"
 
-const Ressource = () => {
+const Ressource = (props: any) => {
     return (
         <div className='Ressource'>
-            <div>Ressource 1</div>
-            <div>Ressource 2</div>
+            <div>{props.gold}$</div>
         </div>
     );
 };
