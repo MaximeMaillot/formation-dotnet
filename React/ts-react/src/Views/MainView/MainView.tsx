@@ -4,12 +4,12 @@ import Ressource from '../../Components/RessourceComponent/Ressource';
 import "./MainView.css"
 
 const MainView = () => {
-    const [gold, setGold] = useState(0)
+    const [player, setPlayer] = useState({ attack: 1, gold: 0, stage: 1 })
 
     return (
         <div className='MainView'>
-            <Ressource gold={gold} />
-            <Main gold={gold} setGold={setGold} />
+            <Ressource gold={player.gold} />
+            <Main player={player} setPlayer={setPlayer} />
         </div>
     );
 };

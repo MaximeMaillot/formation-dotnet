@@ -7,7 +7,7 @@ const PlayerZone = (props: any) => {
     return (
         <div className='PlayerZone'>
             <Menu />
-            <UpgradeList gold={props.gold} setGold={props.setGold} player={props.player} setPlayer={props.setPlayer} />
+            <UpgradeList player={props.player} setPlayer={props.setPlayer} />
         </div>
     );
 };

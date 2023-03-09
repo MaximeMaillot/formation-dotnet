@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import "./Upgrade.css"
 
 const Upgrade = (props: any) => {
+    //TODO change base price via the id given by props
     const [price, setPrice] = useState(1)
 
     const handleClick = () => {
-        if (props.gold >= price) {
+        if (props.player.gold >= price) {
             const updatePlayer = Object.assign({}, props.player)
             updatePlayer.attack += 1
+            updatePlayer.gold -= price
             props.setPlayer(updatePlayer)
             setPrice(price * 2)
-            props.setGold(props.gold - price)
         }
     }
 

@@ -28,7 +28,9 @@ const Monster = (props: any) => {
         const updateMonster = Object.assign({}, monster);
         updateMonster.currentHealth = monster.currentHealth - props.player.attack
         if (updateMonster.currentHealth <= 0) {
-            props.setGold(props.gold + 1)
+            const updatePlayer = Object.assign({}, props.player)
+            updatePlayer.gold = props.player.gold + 1
+            props.setPlayer(updatePlayer)
             updateMonster.currentHealth = monster.maxHealth
         }
         setMonster(updateMonster)

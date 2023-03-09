@@ -6,8 +6,8 @@ import "./MonsterZone.css"
 const MonsterZone = (props: any) => {
     return (
         <div className='MonsterZone'>
-            <Stage />
-            <Monster gold={props.gold} setGold={props.setGold} player={props.player} setPlayer={props.setPlayer} />
+            <Stage player={props.player} setPlayer={props.setPlayer} />
+            <Monster player={props.player} setPlayer={props.setPlayer} />
         </div>
     );
 };

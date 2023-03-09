@@ -1,10 +1,10 @@
 import React from 'react';
 import "./Stage.css"
 
-const Stage = () => {
+const Stage = (props: any) => {
     return (
         <div className='Stage'>
-            Stage
+            Stage {props.player.stage}
         </div>
     );
 };
