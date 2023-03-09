@@ -1,5 +1,7 @@
-.navbar {
-    text-align: center;
+.Navbar {
+    border-bottom: 2px solid black;
+    background-color: skyblue;
+    margin-bottom: 2vh;
 }
 
 button a {
