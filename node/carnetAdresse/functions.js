@@ -12,4 +12,4 @@ export function getJSON(filePath) {
         }
     });
     return dataJSON;
-}
+};

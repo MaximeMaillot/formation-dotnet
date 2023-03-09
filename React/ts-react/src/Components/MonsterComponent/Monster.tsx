@@ -39,7 +39,7 @@ const Monster = (props: any) => {
     return (
         <div className='Monster'>
             <div><img onClick={handleClick} src="./img/monster.png" alt="agrougrou" /></div>
-            <MonsterInfo monster={monster} setMonster={setMonster} key={monster.currentHealth} />
+            <MonsterInfo className='monster-img' monster={monster} setMonster={setMonster} key={monster.currentHealth} />
         </div>
     );
 };

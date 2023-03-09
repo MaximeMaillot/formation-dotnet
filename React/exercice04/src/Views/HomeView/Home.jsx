@@ -18,7 +18,6 @@ library.add(faHouse)
 
 const Home = () => {
     return (
-<<<<<<< HEAD
         <div>
             <h1>TpAnnuaire - Bootstrap - FontAwesome</h1>
             <img src=".//logo192.png" alt="Logo-react" />
@@ -45,12 +44,6 @@ const Home = () => {
                 </div>
             </div>
 
-=======
-        <div className='text-center'>
-            <h1>
-                Coucou la maison
-            </h1>
->>>>>>> f54eaee3cf11d60e00822ef4acb6a898ca718842
         </div>
     );
 };

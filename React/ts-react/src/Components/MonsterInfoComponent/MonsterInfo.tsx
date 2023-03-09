@@ -3,7 +3,7 @@ import "./MonsterInfo.css"
 
 const MonsterInfo = (props: any) => {
     return (
-        <div className='MonsterInfo' onClick={(e) => { console.log(props.monster) }}>
+        <div className='MonsterInfo'>
             {props.monster.currentHealth} / {props.monster.maxHealth}
         </div>
     );

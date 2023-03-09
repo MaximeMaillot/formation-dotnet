@@ -1,6 +1,11 @@
 .Upgrade {
     background-color: blue;
-    display: grid;
-    grid-template-rows: auto;
-    min-height: 15%;
+    height: fit-content;
+    padding: 1rem;
+    cursor: pointer;
+    color: whitesmoke;
+}
+
+.Upgrade:hover {
+    background-color: darkblue;
 }

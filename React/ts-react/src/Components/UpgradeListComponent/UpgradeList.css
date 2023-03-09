@@ -1,3 +1,5 @@
 .UpgradeList {
     background-color: cadetblue;
+    display: grid;
+    grid-template-rows: auto;
 }

@@ -10,14 +10,14 @@ const Form = {
 
 const FormAlert = document.querySelector("#form-alert")
 
-const Contacts = document.querySelector("#contacts")
+const Contacts = document.querySelector("#contacts");
 
-const Ajouter = document.querySelector("#add")
-const Show = document.querySelector("#show")
+const Ajouter = document.querySelector("#add");
+const Show = document.querySelector("#show");
 
 let timeout;
 
-let contacts = []
+let contacts = [];
 
 function init() {
     fetch("http://localhost:7777", {
