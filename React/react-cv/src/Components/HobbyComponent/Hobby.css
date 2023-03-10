@@ -1,0 +1,14 @@
+.Hobby {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Hobby-icon {
+    font-size: 3.5rem;
+}
+
+.Hobby-text {
+    font-size: 0.9rem;
+}

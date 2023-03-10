@@ -1,0 +1,27 @@
+.Experience {
+    margin-left: 1rem;
+}
+
+.Experience-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.Experience-title>h3 {
+    margin: 0.67rem 0;
+}
+
+.Experience-title>span {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.Experience-descriptions {
+    margin: 0.67rem 0.5rem;
+}
+
+.Experience-stack {
+    margin-left: 0.5rem;
+}

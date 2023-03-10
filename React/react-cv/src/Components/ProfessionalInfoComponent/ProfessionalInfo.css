@@ -1,0 +1,7 @@
+.ProfessionalInfo {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}

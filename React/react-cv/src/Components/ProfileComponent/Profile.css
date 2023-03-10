@@ -1,0 +1,17 @@
+.Profile {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+    margin: 0.5rem auto;
+}
+
+.Profile-text {
+    font-size: 0.87rem;
+    color: gray;
+}
+
+.Profile-icon {
+    font-size: 2rem;
+    display: block;
+    margin: auto;
+}

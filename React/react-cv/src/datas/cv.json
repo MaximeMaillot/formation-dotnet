@@ -1,0 +1,207 @@
+{
+    "formations": [
+        {
+            "id": 1,
+            "title": "Bac S option Physique Chimie",
+            "city": "St Pol sur Ternoise",
+            "zipcode": "62130",
+            "date": "2012",
+            "formateur": "Lycée Albert Châtelet",
+            "active": true
+        },
+        {
+            "id": 2,
+            "title": "1ère année D.U.T Chimie",
+            "city": "Béthune",
+            "zipcode": "62400",
+            "date": "2012-2014",
+            "formateur": "I.U.T",
+            "active": true
+        },
+        {
+            "id": 3,
+            "title": "D.U.T Informatique",
+            "city": "Lens",
+            "zipcode": "62300",
+            "date": "2015-2017",
+            "formateur": "I.U.T",
+            "active": true
+        },
+        {
+            "id": 4,
+            "title": "Formation Web",
+            "city": "Lens",
+            "zipcode": "62300",
+            "date": "2017-2018",
+            "formateur": "I.U.T",
+            "active": false
+        },
+        {
+            "id": 5,
+            "title": "Formation Grand Systèmes Cobol",
+            "city": "Villeneuve d'Ascq",
+            "zipcode": "59650",
+            "date": "2021",
+            "formateur": "M2i Formation",
+            "active": true
+        },
+        {
+            "id": 6,
+            "title": "Formation Développeur .NET",
+            "city": "Villeneuve d'Ascq",
+            "zipcode": "59650",
+            "date": "2023",
+            "formateur": "M2i Formation",
+            "active": true
+        }
+    ],
+    "experiences": [
+        {
+            "id": 1,
+            "title": "Développeur",
+            "entreprise": "V3D",
+            "city": "Lyon",
+            "zipcode": "",
+            "duration": "3mois",
+            "date": "2017",
+            "tasks": [
+                {
+                    "id": 1,
+                    "text": "Développement d'un logiciel de suivi de crash utilisant l'API d'HockeyApp et agrégation des données nécessaires pour les stocker dans une BDD.",
+                    "active": true
+                },
+                {
+                    "id": 2,
+                    "text": "Développement de dashboards permettant de visualiser l'évolution des crashes dans une période donnée et de pouvoir réagir rapidement en cas de problème grâce à un système de filtrage par version, type, date, utilisateur, etc.",
+                    "active": true
+                }
+            ],
+            "stacks": [
+                {
+                    "id": 1,
+                    "text": "AngularJS",
+                    "active": true
+                },
+                {
+                    "id": 2,
+                    "text": "SlimPHP",
+                    "active": true
+                },
+                {
+                    "id": 3,
+                    "text": "PostgreSQL",
+                    "active": true
+                }
+            ],
+            "active": true
+        },
+        {
+            "id": 2,
+            "title": "Développeur",
+            "entreprise": "Nativ-creation",
+            "city": "Lille",
+            "zipcode": "",
+            "duration": "3mois",
+            "date": "2018",
+            "tasks": [
+                {
+                    "id": 1,
+                    "text": "Développement d'un site web permettant la retransmission en direct des réservations effectuées sur un site d'achat pour une préparation de commande plus aisée.",
+                    "active": true
+                },
+                {
+                    "id": 2,
+                    "text": "Développement d'un site web faisant office de logiciel de caisse avec gestion des clients, de stocks, de différents types de paiement, etc.",
+                    "active": true
+                },
+                {
+                    "id": 3,
+                    "text": "Développement d'un système de configuration à distance pour les caisses avec un système de licence.",
+                    "active": true
+                }
+            ],
+            "stacks": [
+                {
+                    "id": 1,
+                    "text": "VueJS",
+                    "active": true
+                },
+                {
+                    "id": 2,
+                    "text": "Prestashop",
+                    "active": true
+                },
+                {
+                    "id": 3,
+                    "text": "Symphony 4",
+                    "active": true
+                },
+                {
+                    "id": 4,
+                    "text": "Workbox",
+                    "active": true
+                },
+                {
+                    "id": 5,
+                    "text": "MariaDB",
+                    "active": true
+                }
+            ],
+            "active": true
+        },
+        {
+            "id": 3,
+            "title": "Assistant Informatique",
+            "entreprise": "ADEFI",
+            "city": "St Pol sur Ternoise",
+            "zipcode": "",
+            "duration": "1an",
+            "date": "2021/2022",
+            "tasks": [
+                {
+                    "id": 1,
+                    "text": "Maintenance de l'ancien site Web pendant le développement du nouveau.",
+                    "active": true
+                },
+                {
+                    "id": 2,
+                    "text": "Développement d'un robot conversationnel pouvant être utilisé sur Facebook et le site internet.",
+                    "active": true
+                },
+                {
+                    "id": 3,
+                    "text": "Gestion d'un parc informatique de plus de 50 ordinateurs sur 3 sites.",
+                    "active": true
+                },
+                {
+                    "id": 4,
+                    "text": "Site web : www.adefi-ml.com",
+                    "active": false
+                }
+            ],
+            "stacks": [
+                {
+                    "id": 1,
+                    "text": "Javascript",
+                    "active": true
+                },
+                {
+                    "id": 2,
+                    "text": "Express",
+                    "active": true
+                },
+                {
+                    "id": 3,
+                    "text": "Wix",
+                    "active": true
+                },
+                {
+                    "id": 4,
+                    "text": "Dialogflow",
+                    "active": true
+                }
+            ],
+            "active": true
+        }
+    ]
+}

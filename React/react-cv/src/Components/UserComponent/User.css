@@ -1,0 +1,15 @@
+.User {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.User-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.User-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
