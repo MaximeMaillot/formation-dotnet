@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Hobby.css"
+import "./Hobby.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Hobby = ({ icon, text }) => {

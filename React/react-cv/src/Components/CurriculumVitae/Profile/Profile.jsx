@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Profile.css"
+import "./Profile.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Profile = ({ icon, text }) => {

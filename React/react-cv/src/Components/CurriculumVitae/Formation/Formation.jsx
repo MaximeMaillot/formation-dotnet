@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Formation.css"
+import "./Formation.scss"
 
 const Formation = ({ formation }) => {
     return (

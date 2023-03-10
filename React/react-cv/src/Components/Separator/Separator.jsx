@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Separator.css"
+import "./Separator.scss"
 
 const Separator = ({ color = "black", width = "75%", margin = "0 auto" }) => {
     return (

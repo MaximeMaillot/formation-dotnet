@@ -1,7 +1,7 @@
 import React from 'react';
 import ExperienceList from '../ExperiencesList/ExperienceList';
 import FormationList from '../FormationList/FormationList';
-import "./ProfessionalInfo.css"
+import "./ProfessionalInfo.scss"
 import data from "./../../../data/cv.json"
 import Separator from '../../Separator/Separator';
 

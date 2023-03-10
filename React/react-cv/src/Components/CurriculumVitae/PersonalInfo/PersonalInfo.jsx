@@ -4,7 +4,7 @@ import HobbyList from '../../CurriculumVitae/HobbyList/HobbyList';
 import ProfileList from '../../CurriculumVitae/ProfileList/ProfileList';
 import Separator from '../../Separator/Separator';
 import User from '../../CurriculumVitae/User/User';
-import "./PersonalInfo.css"
+import "./PersonalInfo.scss"
 
 const PersonalInfo = () => {
     return (

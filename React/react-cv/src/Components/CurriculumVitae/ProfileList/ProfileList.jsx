@@ -1,5 +1,5 @@
 import React from 'react';
-import "./ProfileList.css"
+import "./ProfileList.scss"
 import Profile from "../Profile/Profile"
 import { faCar, faLocationDot, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';

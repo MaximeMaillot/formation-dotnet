@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import CvView from './Views/CvView/CvView';
 
 function App() {

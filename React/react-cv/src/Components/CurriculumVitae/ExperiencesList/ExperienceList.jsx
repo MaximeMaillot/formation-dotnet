@@ -1,5 +1,5 @@
 import React from 'react';
-import "./ExperienceList.css"
+import "./ExperienceList.scss"
 import Experience from "../Experience/Experience"
 import Title from '../Title/Title';
 
