@@ -1,6 +1,6 @@
 import React from 'react';
-import Formation from '../FormationComponent/Formation';
-import Title from '../TitleComponent/Title';
+import Formation from '../Formation/Formation';
+import Title from '../Title/Title';
 import "./FormationList.css"
 
 const FormationList = ({ formations }) => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import PersonalInfo from '../../Components/PersonalInfoComponent/PersonalInfo';
-import ProfessionalInfo from '../../Components/ProfessionalInfoComponent/ProfessionalInfo';
+import PersonalInfo from '../../Components/CurriculumVitae/PersonalInfo/PersonalInfo';
+import ProfessionalInfo from '../../Components/CurriculumVitae/ProfessionalInfo/ProfessionalInfo';
 import "./CvView.css"
 
 const CvView = () => {

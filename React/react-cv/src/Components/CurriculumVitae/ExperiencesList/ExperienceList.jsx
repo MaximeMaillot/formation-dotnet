@@ -1,7 +1,7 @@
 import React from 'react';
 import "./ExperienceList.css"
-import Experience from "../ExperienceComponent/Experience"
-import Title from '../TitleComponent/Title';
+import Experience from "../Experience/Experience"
+import Title from '../Title/Title';
 
 const ExperienceList = ({ experiences }) => {
     return (

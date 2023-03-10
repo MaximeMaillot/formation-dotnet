@@ -1,13 +1,15 @@
 import React from 'react';
-import ExperienceList from '../ExperiencesListComponent/ExperienceList';
-import FormationList from '../FormationListComponent/FormationList';
+import ExperienceList from '../ExperiencesList/ExperienceList';
+import FormationList from '../FormationList/FormationList';
 import "./ProfessionalInfo.css"
-import data from "./../../datas/cv.json"
+import data from "./../../../data/cv.json"
+import Separator from '../../Separator/Separator';
 
 const ProfessionalInfo = () => {
     return (
         <div className='ProfessionalInfo'>
             <ExperienceList experiences={data.experiences} />
+            <Separator />
             <FormationList formations={data.formations} />
         </div>
     );

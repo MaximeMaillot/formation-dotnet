@@ -1,6 +1,6 @@
 import React from 'react';
 import "./HobbyList.css"
-import Hobby from "./../HobbyComponent/Hobby"
+import Hobby from "./../Hobby/Hobby"
 import { faBookOpen, faGamepad, faChessKing } from '@fortawesome/free-solid-svg-icons';
 
 const HobbyList = () => {

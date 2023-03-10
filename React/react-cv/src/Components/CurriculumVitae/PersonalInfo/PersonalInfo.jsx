@@ -1,9 +1,9 @@
 import React from 'react';
-import Description from '../DescriptionComponent/Description';
-import HobbyList from '../HobbyListComponent/HobbyList';
-import ProfileList from '../ProfileListComponent/ProfileList';
-import Separator from '../SeparatorComponent/Separator';
-import User from '../UserComponent/User';
+import Description from '../../CurriculumVitae/Description/Description';
+import HobbyList from '../../CurriculumVitae/HobbyList/HobbyList';
+import ProfileList from '../../CurriculumVitae/ProfileList/ProfileList';
+import Separator from '../../Separator/Separator';
+import User from '../../CurriculumVitae/User/User';
 import "./PersonalInfo.css"
 
 const PersonalInfo = () => {
