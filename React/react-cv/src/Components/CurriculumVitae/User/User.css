@@ -13,3 +13,8 @@
     font-size: 1.25rem;
     font-weight: bold;
 }
+
+.User-img {
+    border-radius: 50%;
+    border: 2px solid darkgreen;
+}
