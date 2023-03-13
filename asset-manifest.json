@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/formation-dotnet/static/css/main.31ccd5f7.css",
+    "main.js": "/formation-dotnet/static/js/main.e9196e36.js",
+    "static/js/787.11baedba.chunk.js": "/formation-dotnet/static/js/787.11baedba.chunk.js",
+    "index.html": "/formation-dotnet/index.html",
+    "main.31ccd5f7.css.map": "/formation-dotnet/static/css/main.31ccd5f7.css.map",
+    "main.e9196e36.js.map": "/formation-dotnet/static/js/main.e9196e36.js.map",
+    "787.11baedba.chunk.js.map": "/formation-dotnet/static/js/787.11baedba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31ccd5f7.css",
+    "static/js/main.e9196e36.js"
+  ]
+}
